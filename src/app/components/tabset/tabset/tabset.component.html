@@ -1,0 +1,13 @@
+<div *ngIf="tabs" class="tabset">
+  <div class="tabset-header">
+    <div class="item" *ngFor="let tab of tabs" (click)="selectTab(tab)" >
+        <span class="tab-title">{{tab.tabTitle | translate}}</span>  
+        <span class="active" [class.ocult]="!tab.active"></span>        
+    </div>
+    
+  </div>
+  <div class="tabset-content">  
+    <ng-content></ng-content>
+  </div>
+</div>
+

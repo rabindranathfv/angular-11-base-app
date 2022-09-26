@@ -1,0 +1,466 @@
+<ng-template #successMessage>
+  <app-alert 
+      [isVisible]="true" [alertType]="'success'" 
+      [message]="'ownershipModule.messages.createSuccess'" >
+  </app-alert>
+</ng-template>
+<ng-template #errorMessage>
+  <app-alert [isVisible]="true" [alertType]="'danger'" [message]="(error$ | async).error.message"></app-alert>
+</ng-template>
+
+<div class="mb-3">
+  <app-view-header
+    [icon]="infoModule.icon"
+    [viewName]="infoModule.name"
+    [viewDescription]="infoModule.description"
+  ></app-view-header>
+</div>
+
+<app-stepper>
+  <app-step [stepTitle]="'ownershipModule.addOwnershipComponent.step.basic'">
+    <form [formGroup]="ownershipForm" >
+      <div class="basic-form-grid mr-5">
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownershipModule.labels.owner" | translate }}:
+          </label>
+          <div ngbDropdown class="d-inline-block w-100">
+              <button type="button" class="btn btn-outline-info w-100" ngbDropdownToggle>{{ ('ownershipModule.labels.owner' | translate) }}</button>
+              <div ngbDropdownMenu *ngIf = "owners$">
+                  <button *ngFor="let item of (owners$ | async)" 
+                  type="button"
+                  [class.active]="ownershipForm.controls.ownersIds.value.indexOf(item.id) !=-1"
+                  (click)="pushFormValue('ownersIds', item.id)"  
+                  ngbDropdownItem>
+                      {{ item.firstName + ' ' + item.lastName }}
+                  </button>
+              </div>
+          </div>
+          <div class="input-error text-info" *ngIf="ownershipForm.controls.ownersIds.invalid">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="font-weight-bold">
+              {{"ownershipModule.labels.admissionDate" | translate }}:
+            </label>
+            <input  
+                [class.invalid-input]="ownershipForm.controls.admissionDate.invalid && ownershipForm.controls.admissionDate.touched"
+                formControlName="admissionDate"
+                type="date" class="form-control" 
+            />
+            <div class="input-error" *ngIf="ownershipForm.controls.admissionDate.invalid && ownershipForm.controls.admissionDate.touched">
+                {{'formValidation.required' | translate }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="font-weight-bold">
+              {{"ownershipModule.labels.availableDate" | translate }}:
+            </label>
+            <input  
+                [class.invalid-input]="ownershipForm.controls.availableDate.invalid && ownershipForm.controls.availableDate.touched"
+                formControlName="availableDate"
+                type="date" class="form-control" 
+            />
+            <div class="input-error" *ngIf="ownershipForm.controls.availableDate.invalid && ownershipForm.controls.availableDate.touched">
+                {{'formValidation.required' | translate }}
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.realState" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.realState.invalid && ownershipForm.controls.realState.touched"
+              formControlName="realState"
+              type="text" class="form-control"
+              placeholder="{{'ownershipModule.labels.realState'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.realState.invalid && ownershipForm.controls.realState.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.minimumAmount" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.minimumAmount.invalid && ownershipForm.controls.minimumAmount.touched"
+              formControlName="minimumAmount"
+              type="number" class="form-control"
+              placeholder="100.000" 
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.minimumAmount.invalid && ownershipForm.controls.minimumAmount.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.maximumAmount" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.maximumAmount.invalid && ownershipForm.controls.maximumAmount.touched"
+              formControlName="maximumAmount"
+              type="number" class="form-control"
+              placeholder="1.000.000"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.maximumAmount.invalid && ownershipForm.controls.maximumAmount.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+      </div>
+    </form>
+  </app-step>
+
+  <app-step [stepTitle]="'ownershipModule.addOwnershipComponent.step.address'">
+    <form [formGroup]="ownershipForm" >
+      <div class="basic-form-grid mr-5">
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.street" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.street.invalid && ownershipForm.controls.street.touched"
+              formControlName="street"
+              type="number" class="form-control"
+              placeholder="{{'ownershipModule.labels.street'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.street.invalid && ownershipForm.controls.street.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.number" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.number.invalid && ownershipForm.controls.number.touched"
+              formControlName="number"
+              type="number" class="form-control"
+              placeholder="{{'ownershipModule.labels.number'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.number.invalid && ownershipForm.controls.number.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.department" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.department.invalid && ownershipForm.controls.department.touched"
+              formControlName="department"
+              type="number" class="form-control"
+              placeholder="{{'ownershipModule.labels.department'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.department.invalid && ownershipForm.controls.department.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownershipModule.labels.communes" | translate }}:
+          </label>
+          <div ngbDropdown class="d-inline-block w-100">
+              <button type="button" class="btn btn-outline-info w-100" ngbDropdownToggle>{{ ('ownershipModule.labels.communes' | translate) }}</button>
+              <div ngbDropdownMenu>
+                  <button *ngFor="let item of communes" 
+                  type="button" 
+                  [class.active]="ownershipForm.controls.communes.value.indexOf(item) !=-1"
+                  (click)="pushFormValue('communes', item)"  ngbDropdownItem>
+                      {{ item }}
+                  </button>
+              </div>
+          </div>
+          <div class="input-error text-info" *ngIf="ownershipForm.controls.communes.invalid">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+      </div>
+    </form>
+  </app-step>
+
+  <app-step [stepTitle]="'ownershipModule.addOwnershipComponent.step.info'">
+    <form [formGroup]="ownershipForm" >
+      <div class="basic-form-grid mr-5">
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.propertyType" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.propertyType.invalid && ownershipForm.controls.propertyType.touched"
+              formControlName="propertyType"
+              type="text" class="form-control"
+              placeholder="{{'ownershipModule.labels.propertyType'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.propertyType.invalid && ownershipForm.controls.propertyType.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.hasWarehouse" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.hasWarehouse.invalid && ownershipForm.controls.hasWarehouse.touched"
+              formControlName="hasWarehouse"
+              type="checkbox" class="form-control"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.hasWarehouse.invalid && ownershipForm.controls.hasWarehouse.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.hasParking" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.hasParking.invalid && ownershipForm.controls.hasParking.touched"
+              formControlName="hasParking"
+              type="checkbox" class="form-control"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.hasParking.invalid && ownershipForm.controls.hasParking.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>        
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.isAssertion" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.isAssertion.invalid && ownershipForm.controls.isAssertion.touched"
+              formControlName="isAssertion"
+              type="checkbox" class="form-control"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.isAssertion.invalid && ownershipForm.controls.isAssertion.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>        
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.role" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.role.invalid && ownershipForm.controls.role.touched"
+              formControlName="role"
+              type="text" class="form-control"
+              placeholder="{{'ownershipModule.labels.role'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.role.invalid && ownershipForm.controls.role.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>        
+      </div>
+    </form>
+  </app-step>
+  <app-step [stepTitle]="'ownershipModule.addOwnershipComponent.step.admin'">
+    <form [formGroup]="ownershipForm" >
+      <div class="basic-form-grid mr-5">
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.administrationPhone" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.administrationPhone.invalid && ownershipForm.controls.administrationPhone.touched"
+              formControlName="administrationPhone"
+              type="text" class="form-control"
+              placeholder="{{'ownershipModule.labels.administrationPhone'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.administrationPhone.invalid && ownershipForm.controls.administrationPhone.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.administrationContact" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.administrationContact.invalid && ownershipForm.controls.administrationContact.touched"
+              formControlName="administrationContact"
+              type="text" class="form-control"
+              placeholder="{{'ownershipModule.labels.administrationContact'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.administrationContact.invalid && ownershipForm.controls.administrationContact.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.waterClientNumber" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.waterClientNumber.invalid && ownershipForm.controls.waterClientNumber.touched"
+              formControlName="waterClientNumber"
+              type="text" class="form-control"
+              placeholder="{{'ownershipModule.labels.waterClientNumber'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.waterClientNumber.invalid && ownershipForm.controls.waterClientNumber.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.electricityClientNumber" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.electricityClientNumber.invalid && ownershipForm.controls.electricityClientNumber.touched"
+              formControlName="electricityClientNumber"
+              type="text" class="form-control"
+              placeholder="{{'ownershipModule.labels.electricityClientNumber'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.electricityClientNumber.invalid && ownershipForm.controls.electricityClientNumber.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.gasClientNumber" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.gasClientNumber.invalid && ownershipForm.controls.gasClientNumber.touched"
+              formControlName="gasClientNumber"
+              type="text" class="form-control"
+              placeholder="{{'ownershipModule.labels.gasClientNumber'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.gasClientNumber.invalid && ownershipForm.controls.gasClientNumber.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+      </div>
+    </form>
+  </app-step>
+  <app-step [stepTitle]="'ownershipModule.addOwnershipComponent.step.features'">
+    <form [formGroup]="ownershipForm" >
+      <div class="basic-form-grid mr-5">        
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownershipModule.labels.bedrooms" | translate }}:
+          </label>
+          <div ngbDropdown class="d-inline-block w-100">
+              <button type="button" class="btn btn-outline-info w-100" ngbDropdownToggle>{{ ('ownershipModule.labels.bedrooms' | translate) }}</button>
+              <div ngbDropdownMenu >
+                  <button *ngFor="let item of bedrooms" 
+                  type="button" 
+                  [class.active]="ownershipForm.controls.bedrooms.value.indexOf(item) !=-1"
+                  (click)="pushFormValue('bedrooms', item)"  ngbDropdownItem>
+                      {{ item }}
+                  </button>
+              </div>
+          </div>
+          <div class="input-error text-info" *ngIf="ownershipForm.controls.bedrooms.invalid">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownershipModule.labels.bathrooms" | translate }}:
+          </label>
+          <div ngbDropdown class="d-inline-block w-100">
+              <button type="button" class="btn btn-outline-info w-100" ngbDropdownToggle>{{ ('ownershipModule.labels.bathrooms' | translate) }}</button>
+              <div ngbDropdownMenu >
+                  <button *ngFor="let item of bathrooms" 
+                  type="button" 
+                  [class.active]="ownershipForm.controls.bathrooms.value.indexOf(item) !=-1"
+                  (click)="pushFormValue('bathrooms', item)"  ngbDropdownItem>
+                      {{ item }}
+                  </button>
+              </div>
+          </div>
+          <div class="input-error text-info" *ngIf="ownershipForm.controls.bathrooms.invalid">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.surfaceM2" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.surfaceM2.invalid && ownershipForm.controls.surfaceM2.touched"
+              formControlName="surfaceM2"
+              type="text" class="form-control"
+              placeholder="{{'ownershipModule.labels.surfaceM2'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.surfaceM2.invalid && ownershipForm.controls.surfaceM2.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.metro" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.metro.invalid && ownershipForm.controls.metro.touched"
+              formControlName="metro"
+              type="text" class="form-control"
+              placeholder="{{'ownershipModule.labels.metro'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.metro.invalid && ownershipForm.controls.metro.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownershipModule.labels.orientation" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownershipForm.controls.orientation.invalid && ownershipForm.controls.orientation.touched"
+              formControlName="orientation"
+              type="text" class="form-control"
+              placeholder="{{'ownershipModule.labels.orientation'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownershipForm.controls.orientation.invalid && ownershipForm.controls.orientation.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+      </div>
+    </form>
+  </app-step>
+
+  <app-step [stepTitle]="'ownershipModule.addOwnershipComponent.step.images'">
+    <div class="images-container mr-5">
+      <div class="form-group">
+        <label class="font-weight-bold">
+            {{ 'ownershipModule.labels.images' | translate}}
+        </label>
+        <div class="input-error text-info" *ngIf="ownershipForm.controls.images">
+            {{'formValidation.required' | translate }}
+        </div>
+      </div>
+      <div  class="property-images" >
+        <div
+          class="image"
+          *ngFor="let url of ownershipForm.controls.images.value"
+          [ngStyle]="{'background-image':'url(' + url + ')'}">
+        </div>
+      </div>
+    </div>
+  </app-step>
+
+  <app-step [stepTitle]="'ownershipModule.addOwnershipComponent.step.more'">
+    <form [formGroup]="ownershipForm" >
+      <div class="basic-form-grid mr-5">
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownershipModule.labels.moreFeatures" | translate }}:
+          </label>
+          <textarea  
+              [class.invalid-input]="ownershipForm.controls.moreFeatures.invalid && ownershipForm.controls.moreFeatures.touched"
+              formControlName="moreFeatures"
+              type="text" class="form-control" 
+              placeholder="{{'ownershipModule.labels.moreFeatures'| translate}}"
+          ></textarea>
+        </div>  
+      </div>         
+    </form>
+  </app-step>  
+
+  <div class="d-flex justify-content-end pr-5 pb-5 pt-3" >
+    <button 
+        type="button"
+        (click)="createOwnership()" 
+        class="btn btn-primary btn-lg font-weight-light w- 100"> 
+        {{ infoModule.name | translate }}
+    </button>
+  </div>
+</app-stepper>

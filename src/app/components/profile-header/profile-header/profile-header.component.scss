@@ -1,0 +1,29 @@
+.profile-header {
+    box-shadow: 0 0.5rem 1rem 0 var(--shadow-color);
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr;
+    grid-gap: 5%;
+    background-color: var(--card-color);
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: 10px;
+
+    img {
+        width: 100px;
+        border-radius: 50%;;
+    }
+
+    .profile-actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .profile-name {
+        display: flex;
+        align-items: center;
+        h1 {
+            font-weight: lighter;
+        }
+    }
+}

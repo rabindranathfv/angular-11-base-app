@@ -1,0 +1,80 @@
+<div class="mb-3">
+    <app-view-header
+      [icon]="infoModule.icon"
+      [viewName]="infoModule.name"
+      [viewDescription]="infoModule.description"
+    >
+    </app-view-header>
+</div>
+
+<app-tabset *ngIf="(currentCustomer$ | async)">
+    <app-tab [tabTitle]="'customerModule.viewCustomerComponent.tab.basic'">
+        <div class="info-grid">
+            <div class="mb-3">
+                <h5><i class="fa fa-user"></i>{{ "customerModule.labels.name" | translate }}:</h5>
+                <span>{{ (currentCustomer$ | async).name }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-user"></i>{{ "customerModule.labels.country" | translate }}:</h5>
+                <span>{{ (currentCustomer$ | async).country }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-user"></i>{{ "customerModule.labels.address" | translate }}:</h5>
+                <span>{{ (currentCustomer$ | async).address }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-user"></i>{{ "customerModule.labels.legalRepresentative" | translate }}:</h5>
+                <span>{{ (currentCustomer$ | async).legalRepresentative }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-user"></i>{{ "customerModule.labels.email" | translate }}:</h5>
+                <span>{{ (currentCustomer$ | async).email }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-user"></i>{{ "customerModule.labels.primaryPhone" | translate }}:</h5>
+                <span>{{ (currentCustomer$ | async).primaryPhone }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-user"></i>{{ "customerModule.labels.secondaryPhone" | translate }}:</h5>
+                <span>{{ (currentCustomer$ | async).secondaryPhone }}</span>
+            </div>
+        </div>
+    </app-tab>
+    <app-tab [tabTitle]="'customerModule.viewCustomerComponent.tab.config'">
+        <div class="info-grid" *ngIf="(currentCustomer$ | async).configuration">
+            <div class="mb-3">
+                <h5><i class="fa fa-text"></i>{{ 'configModule.label.slogan' | translate}}:</h5>
+                <span>{{ (currentCustomer$ | async).configuration.slogan }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-text"></i>{{ 'configModule.button.selectLang' | translate}}:</h5>
+                <span>{{ (currentCustomer$ | async).configuration.language }}</span>
+            </div>
+            <div class="mb-3 d-flex align-items-center flex-column">
+                <h5><i class="fa fa-text"></i>{{ 'configModule.color.primary' | translate}}:</h5>
+                <div class="currentColor mb-3 center-align" [ngStyle]="{'background-color': (currentCustomer$ | async).configuration.mainColor || defaultColor }">
+                    <i class="fa fa-paint-brush"></i>  
+                </div>
+            </div>
+            <div class="mb-3 d-flex align-items-center flex-column">
+                <h5><i class="fa fa-text"></i>{{ 'configModule.color.secondary' | translate}}:</h5>
+                <div class="currentColor mb-3 center-align" [ngStyle]="{'background-color': (currentCustomer$ | async).configuration.secondaryColor || defaultColor  }">
+                    <i class="fa fa-paint-brush"></i>  
+                </div>
+            </div>            
+            <div class="mb-3 d-flex align-items-center flex-column">
+                <h5><i class="fa fa-text"></i>{{ 'configModule.logo.main' | translate}}:</h5>
+                <div class="image">
+                    <img src="{{(currentCustomer$ | async).configuration.logo || urlDefaultImage }}" alt="image"/>
+                </div>
+            </div>
+            <div class="mb-3 d-flex align-items-center flex-column">
+                <h5><i class="fa fa-text"></i>{{ 'configModule.logo.mobile' | translate}}:</h5>
+                <div class="image">
+                    <img src="{{(currentCustomer$ | async).configuration.logoMobile || urlDefaultImage }}" alt="image"/>
+                </div>
+            </div>          
+        </div>
+    </app-tab>
+
+</app-tabset>

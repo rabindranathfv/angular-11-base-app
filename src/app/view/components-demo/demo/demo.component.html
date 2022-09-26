@@ -1,0 +1,156 @@
+<p>demo works!</p>
+
+<p>Please click one of the button to see a Toast being displayed in the top right corner of your screen:</p>
+<button class="btn btn-primary" (click)="showStandard()" ngbTooltip="Will disappear in 5s">Standard toast</button>&nbsp;
+<button class="btn btn-success" (click)="showSuccess()" ngbTooltip="Will disappear in 10s">Success toast</button>&nbsp;
+
+<ng-template #dangerTpl>
+  <app-metric-card-n1 [metricCardData]="metrics[3]"></app-metric-card-n1>
+</ng-template>
+<button class="btn btn-primary" (click)="showDanger(dangerTpl)" ngbTooltip="Will disappear in 15s">Custom toast</button>&nbsp;
+
+
+<h1>MODAL demo</h1>
+
+
+<button type="button" class="btn btn-primary" (click)="openModal(template)">Modal with Metric Cards</button>
+ 
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">    
+        <div class="grid mb-3">
+            <app-metric-card-n1 [metricCardData]="metrics[0]"></app-metric-card-n1>
+            <app-metric-card-n1 [metricCardData]="metrics[1]"></app-metric-card-n1>
+            <app-metric-card-n1 [metricCardData]="metrics[2]"></app-metric-card-n1>
+            <app-metric-card-n1 [metricCardData]="metrics[3]"></app-metric-card-n1>
+        </div>
+  </div>
+  <div class="modal-footer">
+        <button type="button" class="btn btn-dark" (click)="modalRef.hide()">Close Modal</button>
+  </div>
+</ng-template>
+
+
+
+<button type="button" class="btn btn-primary" (click)="openModal(template1)">Modal with Ag Grid</button>
+ 
+<ng-template #template1>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">    
+            <app-data-table 
+            [rowData]="rowData"
+            [columnDefs]="columnDefs"
+        ></app-data-table>
+  </div>
+  <div class="modal-footer">
+        <button type="button" class="btn btn-dark" (click)="modalRef.hide()">Close Modal</button>
+  </div>
+</ng-template>
+
+<button type="button" class="btn btn-primary" (click)="openModal(template2)">Modal with Charts</button>
+ 
+<ng-template #template2>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">    
+    <app-chart [chartData]='chartData[1]'></app-chart>
+  </div>
+  <div class="modal-footer">
+        <button type="button" class="btn btn-dark" (click)="modalRef.hide()">Close Modal</button>
+  </div>
+</ng-template>
+
+<br>
+<br>
+
+<div class="grid-4 mb-3">
+    <app-metric-card-n1 [metricCardData]="metrics[0]"></app-metric-card-n1>
+    <app-metric-card-n1 [metricCardData]="metrics[1]"></app-metric-card-n1>
+    <app-metric-card-n1 [metricCardData]="metrics[2]"></app-metric-card-n1>
+    <app-metric-card-n1 [metricCardData]="metrics[3]"></app-metric-card-n1>
+</div>
+
+
+<app-data-table 
+            [rowData]="rowData"
+            [columnDefs]="columnDefs"
+></app-data-table>
+
+<div class="grid-3">
+    <app-metric-card-n3 [metricCardData]="n3CardData[2]" ></app-metric-card-n3>
+    <app-metric-card-n1 [metricCardData]="n1CardData[0]"></app-metric-card-n1>
+    <app-metric-card-n3 [metricCardData]="n3CardData[0]" ></app-metric-card-n3>    
+</div>
+
+    <app-task-list [listData]="taskListData"></app-task-list>
+
+
+
+<div class="grid mb-3">
+    <app-chart [chartData]='chartData[0]'></app-chart>
+    <app-chart></app-chart>        
+</div>
+<div class="grid mb-3">
+    <app-chart [chartData]='chartData[2]'></app-chart>
+    <app-chart [chartData]='chartData[3]'></app-chart> 
+</div>
+<div class="grid-3 mb-3">        
+    <app-chart [chartData]='chartData[1]'></app-chart>
+    <app-chart [chartData]=''></app-chart>
+    <app-chart [chartData]='chartData[2]'></app-chart>  
+</div>
+
+
+<div>
+    <div class="p-5">
+        <h1>TAG DEMO - CI/CD Master</h1>
+        <app-tag *ngFor="let data of tagData"  [tagData]="data"></app-tag>
+        <h1>END TAG DEMO</h1>
+    </div>
+</div>
+
+
+<hr>
+<div class=" grid">
+<div class="card">
+    <app-no-data message="Sin coincidencias" description="No se encontraron resultados de su búsqueda" icon="fa fa-search"></app-no-data>
+</div>
+<div class="card">
+    <app-no-data message="Sin coincidencias" description="No se encontraron resultados de su búsqueda" icon="fa fa-search"></app-no-data>
+</div>
+</div>
+
+<h1>app-spinner Demo</h1>
+<br>
+
+<div class="d-flex">
+    <app-spinner [color]="'text-warning'" [size]="'50'" [type]="'grow'"></app-spinner>
+    <app-spinner [color]="'text-danger'" [size]="'50'" [type]="'grow'"></app-spinner>
+    <app-spinner [color]="'text-success'" [size]="'50'" [type]="'grow'"></app-spinner>
+    <app-spinner [color]="'text-info'" [size]="'50'" [type]="'grow'"></app-spinner>
+    <app-spinner [color]="'text-dark'" [size]="'50'" [type]="'grow'"></app-spinner>  
+    
+</div>
+
+<div class="d-flex">
+    <app-spinner [color]="'text-warning'" ></app-spinner>
+    <app-spinner [color]="'text-danger'" [size]="'50'"  ></app-spinner>
+    <app-spinner [color]="'text-success'" [size]="'150'"  ></app-spinner>
+    <app-spinner [color]="'text-info'" [size]="'200'"  ></app-spinner>
+    <app-spinner [size]="'250'"></app-spinner>
+</div>
+

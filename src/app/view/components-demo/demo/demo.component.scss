@@ -1,0 +1,17 @@
+.grid {
+    display: grid; 
+    grid-template-columns: repeat(2,49.5%); // "1fr 1fr" are presenting error with chart.js canvas
+    grid-gap: 1%;
+}
+
+.grid-3{
+    display: grid;
+    grid-template-columns:  repeat(3,33%);
+    grid-gap: 0.5%;
+}
+
+.grid-4{
+    display: grid;
+    grid-template-columns:  repeat(4, 1fr);
+    grid-gap: 1%;
+}

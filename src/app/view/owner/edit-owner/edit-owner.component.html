@@ -1,0 +1,315 @@
+<ng-template #successMessage>
+  <app-alert 
+      [isVisible]="true" [alertType]="'success'" 
+      [message]="'ownerModule.messages.editSuccess'" >
+  </app-alert>
+</ng-template>
+<ng-template #errorMessage>
+  <app-alert [isVisible]="true" [alertType]="'danger'" [message]="(error$ | async).error.message"></app-alert>
+</ng-template>
+
+<div class="mb-3">
+  <app-view-header
+    [icon]="infoModule.icon"
+    [viewName]="infoModule.name"
+    [viewDescription]="infoModule.description"
+  ></app-view-header>
+</div>
+
+<app-stepper>
+  <app-step [stepTitle]="'ownerModule.addOwnerComponent.step.info'">
+    <form [formGroup]="ownerForm" >
+      <div class="basic-form-grid mr-5">
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.business" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.business.invalid && ownerForm.controls.business.touched"
+              formControlName="business"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.business'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.business.invalid && ownerForm.controls.business.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.position" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.position.invalid && ownerForm.controls.position.touched"
+              formControlName="position"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.position'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.position.invalid && ownerForm.controls.position.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="font-weight-bold">
+                {{"ownerModule.labels.admissionDate" | translate }}:
+            </label>
+            <input  
+                [class.invalid-input]="ownerForm.controls.admissionDate.invalid && ownerForm.controls.admissionDate.touched"
+                formControlName="admissionDate"
+                type="date" class="form-control" 
+                placeholder="{{'ownerModule.labels.admissionDate'| translate}}"
+            />
+            <div class="input-error" *ngIf="ownerForm.controls.admissionDate.invalid && ownerForm.controls.admissionDate.touched">
+                {{'formValidation.required' | translate }}
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.fixedAmount" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.fixedAmount.invalid && ownerForm.controls.fixedAmount.touched"
+              formControlName="fixedAmount"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.fixedAmount'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.fixedAmount.invalid && ownerForm.controls.fixedAmount.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.administrationPercent" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.administrationPercent.invalid && ownerForm.controls.administrationPercent.touched"
+              formControlName="administrationPercent"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.administrationPercent'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.administrationPercent.invalid && ownerForm.controls.administrationPercent.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+            {{"ownerModule.labels.brokeragePercent" | translate }}:
+          </label>
+          <input  
+          [class.invalid-input]="ownerForm.controls.brokeragePercent.invalid && ownerForm.controls.brokeragePercent.touched"
+          formControlName="brokeragePercent"
+          type="text" class="form-control" 
+          placeholder="{{'ownerModule.labels.brokeragePercent'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.brokeragePercent.invalid && ownerForm.controls.brokeragePercent.touched">
+            {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.portfolioExecutives" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.portfolioExecutives.invalid && ownerForm.controls.portfolioExecutives.touched"
+              formControlName="portfolioExecutives"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.portfolioExecutives'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.portfolioExecutives.invalid && ownerForm.controls.portfolioExecutives.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.commercialAddress" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.comercialAddress.invalid && ownerForm.controls.comercialAddress.touched"
+              formControlName="comercialAddress"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.comercialAddress'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.comercialAddress.invalid && ownerForm.controls.comercialAddress.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.observations" | translate }}:
+          </label>
+          <textarea  
+              [class.invalid-input]="ownerForm.controls.observations.invalid && ownerForm.controls.observations.touched"
+              formControlName="observations"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.observations'| translate}}"
+          ></textarea>
+          <div class="input-error" *ngIf="ownerForm.controls.observations.invalid && ownerForm.controls.observations.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+      </div>
+      </div>
+    </form>
+  </app-step>
+
+  <app-step [stepTitle]="'ownerModule.addOwnerComponent.step.assistant'">
+    <form [formGroup]="ownerForm" >
+      <div class="basic-form-grid mr-5">        
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.assistantFirstName" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.assistantFirstName.invalid && ownerForm.controls.assistantFirstName.touched"
+              formControlName="assistantFirstName"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.assistantFirstName'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.assistantFirstName.invalid && ownerForm.controls.assistantFirstName.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>        
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.assistantLastName" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.assistantLastName.invalid && ownerForm.controls.assistantLastName.touched"
+              formControlName="assistantLastName"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.assistantLastName'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.assistantLastName.invalid && ownerForm.controls.assistantLastName.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>        
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.assistantPhone" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.assistantPhone.invalid && ownerForm.controls.assistantPhone.touched"
+              formControlName="assistantPhone"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.assistantPhone'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.assistantPhone.invalid && ownerForm.controls.assistantPhone.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>        
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.assistantEmail" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.assistantEmail.invalid && ownerForm.controls.assistantEmail.touched"
+              formControlName="assistantEmail"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.assistantEmail'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.assistantEmail.invalid && ownerForm.controls.assistantEmail.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>        
+      </div>
+    </form>
+  </app-step>
+
+  <app-step [stepTitle]="'ownerModule.addOwnerComponent.step.transfer'">
+    <form [formGroup]="ownerForm" >
+      <div class="basic-form-grid mr-5">        
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.titularFirstName" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.titularFirstName.invalid && ownerForm.controls.titularFirstName.touched"
+              formControlName="titularFirstName"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.titularFirstName'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.titularFirstName.invalid && ownerForm.controls.titularFirstName.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>        
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.titularLastName" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.titularLastName.invalid && ownerForm.controls.titularLastName.touched"
+              formControlName="titularLastName"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.titularLastName'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.titularLastName.invalid && ownerForm.controls.titularLastName.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>        
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.titularTaxInternationalIdentifier" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.titularTaxInternationalIdentifier.invalid && ownerForm.controls.titularTaxInternationalIdentifier.touched"
+              formControlName="titularTaxInternationalIdentifier"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.titularTaxInternationalIdentifier'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.titularTaxInternationalIdentifier.invalid && ownerForm.controls.titularTaxInternationalIdentifier.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>        
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.bank" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.bank.invalid && ownerForm.controls.bank.touched"
+              formControlName="bank"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.bank'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.bank.invalid && ownerForm.controls.bank.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>        
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.accountType" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.accountType.invalid && ownerForm.controls.accountType.touched"
+              formControlName="accountType"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.accountType'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.accountType.invalid && ownerForm.controls.accountType.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>        
+        <div class="form-group">
+          <label class="font-weight-bold">
+              {{"ownerModule.labels.accountNumber" | translate }}:
+          </label>
+          <input  
+              [class.invalid-input]="ownerForm.controls.accountNumber.invalid && ownerForm.controls.accountNumber.touched"
+              formControlName="accountNumber"
+              type="text" class="form-control" 
+              placeholder="{{'ownerModule.labels.accountNumber'| translate}}"
+          />
+          <div class="input-error" *ngIf="ownerForm.controls.accountNumber.invalid && ownerForm.controls.accountNumber.touched">
+              {{'formValidation.required' | translate }}
+          </div>
+        </div>      
+      </div>
+    </form>
+  </app-step>
+    <div class="d-flex justify-content-end pr-5 pb-5 pt-3" >
+      <button 
+          type="button"
+          [disabled]="ownerForm.invalid" 
+          (click)="updateOwner()" 
+          class="btn btn-primary btn-lg font-weight-light w- 100"> 
+          {{ infoModule.name | translate }}
+      </button>
+    </div>
+</app-stepper>

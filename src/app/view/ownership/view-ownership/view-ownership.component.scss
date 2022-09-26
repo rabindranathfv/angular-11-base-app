@@ -1,0 +1,15 @@
+.row {
+  .col {
+    .half {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+textarea{
+    height: 100px;
+    width: 98%;
+    padding:1%;
+    border:none;
+    resize: none;
+}

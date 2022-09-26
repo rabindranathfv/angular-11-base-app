@@ -1,0 +1,6 @@
+
+<span *ngIf="active&&tagData"  class="badge badge-{{tagData.color}}">
+    <span *ngIf="tagData.icon" class="{{tagData.icon}}"></span>
+    <span class="text">{{tagData.text}}</span>
+    <span *ngIf="tagData.dismissible" class="fa fa-times times" (click)="dismiss()"></span>
+</span>

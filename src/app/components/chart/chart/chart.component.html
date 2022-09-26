@@ -1,0 +1,12 @@
+<div class="card p-2 h-100">
+    <canvas *ngIf="validData" #chart></canvas>
+    <app-no-data 
+        *ngIf="!validData" 
+        description="No hay datos para mostrar" 
+        icon="fa fa-line-chart">
+    </app-no-data>
+</div>
+
+
+
+

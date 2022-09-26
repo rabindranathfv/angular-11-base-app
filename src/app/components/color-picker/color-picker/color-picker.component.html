@@ -1,0 +1,10 @@
+
+<div class="center-align flex-column">
+    <div class="currentColor mb-3 center-align" [ngStyle]="{'background-color': color}">
+        <i class="fa fa-paint-brush"></i>  
+    </div>
+    <div class="center-align">
+        <p class="font-weight-bold mr-3 mb-0">Select color</p>
+        <input id="favcolor" type="color" (change)="upload($event)">    
+    </div>    
+</div>

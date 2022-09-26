@@ -1,0 +1,92 @@
+<div class="mb-2">
+  <app-profile-header [userInfo] ="userInfo"></app-profile-header>
+</div>
+
+<app-tabset>
+    <app-tab [tabTitle]="'profileModule.tab.basic'">
+      <form>
+        <div class="basic-info-form">        
+            <div class="form-group">
+              <label class="font-weight-bold">{{ 'profileModule.label.name' | translate}}:</label>
+              <input type="text" class="form-control" placeholder="{{ 'profileModule.label.name'| translate}}">
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold">{{ 'profileModule.label.lastName' | translate}}:</label>
+              <input type="text" class="form-control" placeholder="{{ 'profileModule.label.lastName' | translate}}">
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold">{{ 'profileModule.label.dni' | translate}}:</label>
+              <input type="text" class="form-control" placeholder="{{ 'profileModule.label.dni' | translate}}">
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold">{{ 'profileModule.label.email' | translate}}:</label>
+              <input type="email" class="form-control" placeholder="{{ 'profileModule.label.email' | translate}}">
+            </div>            
+            <div class="form-group">
+              <label class="font-weight-bold">{{ 'profileModule.label.phone' | translate}}:</label>
+              <input type="email" class="form-control" placeholder="{{ 'profileModule.label.phone' | translate}}">
+            </div>
+            <div class="form-group mb-4">
+              <label class="font-weight-bold">{{ 'profileModule.label.mobile' | translate}}:</label>
+              <input type="email" class="form-control" placeholder="{{ 'profileModule.label.mobile' | translate}}">
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold">{{ 'profileModule.label.business' | translate}}:</label>
+              <input type="email" class="form-control" placeholder="{{ 'profileModule.label.business' | translate}}">
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold">{{ 'profileModule.label.position' | translate}}:</label>
+              <input type="email" class="form-control" placeholder="{{ 'profileModule.label.position' | translate}}">
+            </div>       
+        </div>
+        <h4>{{ 'profileModule.tab.otherContact' | translate}}</h4>
+        <div class="basic-info-form">
+          <div class="form-group mb-4">
+            <label class="font-weight-bold">{{ 'profileModule.label.fullName' | translate}}:</label>
+            <input type="text" class="form-control" placeholder="{{ 'profileModule.label.fullName' | translate}}">
+          </div>   
+          <div class="form-group mb-4">
+            <label class="font-weight-bold">{{ 'profileModule.label.email' | translate}}:</label>
+            <input type="email" class="form-control" placeholder="{{ 'profileModule.label.email' | translate}}">
+          </div>   
+          <div class="form-group mb-4">
+            <label class="font-weight-bold">{{ 'profileModule.label.phone' | translate}}:</label>
+            <input type="text" class="form-control" placeholder="{{ 'profileModule.label.phone' | translate}}">
+          </div>
+        </div>
+      </form> 
+      
+    </app-tab>
+    <app-tab [tabTitle]="'profileModule.tab.address'" >
+      <form>
+        <div class="basic-info-form">        
+            <div class="form-group">
+              <label class="font-weight-bold">{{ 'profileModule.label.department' | translate}}:</label>
+              <input type="text" class="form-control" placeholder="{{ 'profileModule.label.department'| translate}}">
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold">{{ 'profileModule.label.street' | translate}}:</label>
+              <input type="text" class="form-control" placeholder="{{ 'profileModule.label.street'| translate}}">
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold">{{ 'profileModule.label.number' | translate}}:</label>
+              <input type="text" class="form-control" placeholder="{{ 'profileModule.label.number'| translate}}">
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold">{{ 'profileModule.label.comercialAddress' | translate}}:</label>
+              <input type="text" class="form-control" placeholder="{{ 'profileModule.label.comercialAddress'| translate}}">
+            </div>
+        </div>
+      </form>
+    </app-tab>
+    <app-tab [tabTitle]="'profileModule.tab.images'" [active]="true" >
+      <div class="d-flex justify-content-around">
+        <div class="center-align flex-column">
+            <p class="font-weight-bold">{{ 'profileModule.label.dni' | translate}}</p>
+        </div>
+        <div class="center-align flex-column">
+            <p class="font-weight-bold">{{ 'profileModule.label.userImage' | translate}}</p>
+        </div>
+      </div>
+    </app-tab>
+</app-tabset>

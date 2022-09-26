@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+
+    <div>
+        <button class="btn mr-3" id="toggle-icon" type="button" (click)="toggleSidebar()">
+            <i class="fa fa-bars"></i>
+        </button>
+        <button routerLink="dashboard" class="no-focus btn">
+            <img class="navbar-logo" src="../../../../assets/img/logo2.png" alt="">
+            <a class="navbar-brand" >Angular 11 Base APP</a>
+        </button>
+    </div>
+
+    <div class="navbar-left mr-3">
+        <div class="mx-2" ngbDropdown display="dynamic" placement="bottom-right">
+            <button class="navbar-item" ngbDropdownToggle></button>
+            <div ngbDropdownMenu>
+                <button type="button" ngbDropdownItem (click)="changeTheme()">
+                  <i class="fa fa-adjust" aria-hidden="true"></i>
+                  {{ 'layoutModule.navbar.dropdown.darkMode' | translate }}
+                </button>
+                <button type="button" ngbDropdownItem (click)="changeLang()">
+                  <i class="fa fa-language" aria-hidden="true"></i>
+                  {{ 'layoutModule.navbar.dropdown.lenguaje' | translate }}
+                </button>
+                <button type="button" routerLink="config" ngbDropdownItem>
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                    {{ 'layoutModule.navbar.dropdown.config' | translate }}
+                </button>
+                <button type="button" routerLink="profile" ngbDropdownItem>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    {{ 'layoutModule.navbar.dropdown.profile' | translate }}
+                </button>
+                <button type="button" (click)="logout()" ngbDropdownItem>
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    {{ 'layoutModule.navbar.dropdown.signOut' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>

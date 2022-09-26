@@ -1,0 +1,36 @@
+<div class="mb-3">
+  <app-view-header
+    [icon]="infoModule.icon"
+    [viewName]="infoModule.name"
+    [viewDescription]="infoModule.description"
+  >
+  </app-view-header>
+</div>
+
+<app-tabset *ngIf="(currentOwnership$ | async)" >
+  <app-tab [tabTitle]="'ownershipModule.addOwnershipComponent.step.basic'">
+    <div class="row">
+      <div>
+        <h5><i class="fa fa-user"></i>{{"ownershipModule.labels.administrationContact" | translate }}: </h5>
+        <span>{{ (currentOwnership$ | async).administrationContact }}</span>
+      </div>
+      <div>
+        <h5><i class="fa fa-user"></i>{{"ownershipModule.labels.administrationPhone" | translate }}: </h5>
+        <span>{{ (currentOwnership$ | async).administrationContact }}</span>
+      </div>
+      <div>
+        <h5><i class="fa fa-user"></i>{{"ownershipModule.labels.electricityClientNumber" | translate }}: </h5>
+        <span>{{ (currentOwnership$ | async).administrationContact }}</span>
+      </div>
+      <div>
+        <h5><i class="fa fa-user"></i>{{"ownershipModule.labels.hasParking" | translate }}: </h5>
+        <span>{{ (currentOwnership$ | async).administrationContact }}</span>
+      </div>
+      <div>
+        <h5><i class="fa fa-user"></i>{{"ownershipModule.labels.hasWarehouse" | translate }}: </h5>
+        <span>{{ (currentOwnership$ | async).administrationContact }}</span>
+      </div>
+    </div>
+  </app-tab>
+  
+</app-tabset>

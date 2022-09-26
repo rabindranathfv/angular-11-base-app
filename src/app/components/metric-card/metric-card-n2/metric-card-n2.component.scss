@@ -1,0 +1,38 @@
+.metric-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.font-weight-light{
+    color: rgb(192, 190, 190);
+}
+.metric-icon i{
+    font-size: 50px;
+}
+
+.metric-icon {
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.font-weight-light{
+    color: rgb(192, 190, 190);
+}
+
+.card {
+    height: 100% !important;
+}
+
+.card-body{
+    display: flex;
+    align-items: center;
+}

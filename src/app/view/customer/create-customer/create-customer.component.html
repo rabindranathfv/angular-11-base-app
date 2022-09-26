@@ -1,0 +1,199 @@
+<ng-template #successMessage>
+    <app-alert 
+        [isVisible]="true" [alertType]="'success'" 
+        [message]="viewOption == 'create' ? 'customerModule.messages.createSuccess': 'customerModule.messages.editSuccess' " >
+    </app-alert>
+</ng-template>
+<ng-template #errorMessage>
+    <app-alert [isVisible]="true" [alertType]="'danger'" [message]="(error$ | async).error.message"></app-alert>
+</ng-template>
+
+<div class="mb-3">
+    <app-view-header
+      [icon]="infoModule.icon"
+      [viewName]="infoModule.name"
+      [viewDescription]="infoModule.description"
+    ></app-view-header>
+</div>
+  
+  <app-stepper>
+    <app-step [stepTitle]="'customerModule.createCustomerComponent.step.basic'">
+        <form [formGroup]="customerForm" class="pr-5">
+            <div class="basic-form-grid">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "customerModule.labels.name" | translate }}: 
+                    </label>
+                    <input 
+                        formControlName="name" 
+                        [class.invalid-input]="customerForm.controls.name.invalid && customerForm.controls.name.touched"                        
+                        type="text" class="form-control" 
+                        placeholder="{{'customerModule.labels.name'| translate}}"
+                    />
+                    <div  class="input-error" *ngIf="customerForm.controls.name.invalid && customerForm.controls.name.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "customerModule.labels.country" | translate }}: 
+                    </label>
+                    <input   
+                        [class.invalid-input]="customerForm.controls.country.invalid && customerForm.controls.country.touched"
+                        formControlName="country"
+                        type="text" class="form-control" 
+                        placeholder="{{'customerModule.labels.country'| translate}}"
+                    />
+                    <div  class="input-error" *ngIf="customerForm.controls.country.invalid && customerForm.controls.country.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "customerModule.labels.address" | translate }}: 
+                    </label>
+                    <input  
+                        [class.invalid-input]="customerForm.controls.address.invalid && customerForm.controls.address.touched"
+                        formControlName="address"
+                        type="text" class="form-control" 
+                        placeholder="{{'customerModule.labels.address'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="customerForm.controls.address.invalid && customerForm.controls.address.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "customerModule.labels.legalRepresentative" | translate }}: 
+                    </label>
+                    <input
+                        [class.invalid-input]="customerForm.controls.legalRepresentative.invalid && customerForm.controls.legalRepresentative.touched"
+                        formControlName="legalRepresentative"
+                        type="text" class="form-control" 
+                        placeholder="{{'customerModule.labels.legalRepresentative'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="customerForm.controls.legalRepresentative.invalid && customerForm.controls.legalRepresentative.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "customerModule.labels.taxInternationalIdentifier" | translate }}: 
+                    </label>
+                    <input
+                        [class.invalid-input]="customerForm.controls.taxInternationalIdentifier.invalid && customerForm.controls.taxInternationalIdentifier.touched"
+                        formControlName="taxInternationalIdentifier"
+                        type="text" class="form-control" 
+                        placeholder="{{'customerModule.labels.taxInternationalIdentifier'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="customerForm.controls.taxInternationalIdentifier.invalid && customerForm.controls.taxInternationalIdentifier.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "customerModule.labels.email" | translate }}: 
+                    </label>
+                    <input  
+                        [class.invalid-input]="customerForm.controls.email.invalid && customerForm.controls.email.touched"
+                        formControlName="email"
+                        type="text" class="form-control" 
+                        placeholder="{{'customerModule.labels.email'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="customerForm.controls.email.invalid && customerForm.controls.email.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "customerModule.labels.primaryPhone" | translate }}: 
+                    </label>
+                    <input  
+                        [class.invalid-input]="customerForm.controls.primaryPhone.invalid && customerForm.controls.primaryPhone.touched"
+                        formControlName="primaryPhone"
+                        type="text" class="form-control" 
+                        placeholder="{{'customerModule.labels.primaryPhone'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="customerForm.controls.primaryPhone.invalid && customerForm.controls.primaryPhone.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "customerModule.labels.secondaryPhone" | translate }}: 
+                    </label>
+                    <input  
+                        [class.invalid-input]="customerForm.controls.secondaryPhone.invalid && customerForm.controls.secondaryPhone.touched"
+                        formControlName="secondaryPhone"
+                        type="text" class="form-control" 
+                        placeholder="{{'customerModule.labels.secondaryPhone'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="customerForm.controls.secondaryPhone.invalid && customerForm.controls.secondaryPhone.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </app-step>
+    <app-step [stepTitle]="'customerModule.createCustomerComponent.step.config'">
+        <form [formGroup]="configForm"  class="pr-5">
+            <div class="config-form-grid">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{"configModule.label.slogan" | translate }}:
+                    </label>
+                    <input  
+                        [class.invalid-input]="configForm.controls.slogan.invalid && configForm.controls.slogan.touched"
+                        formControlName="slogan"
+                        type="text" class="form-control" 
+                        placeholder="{{'configModule.label.slogan'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="configForm.controls.slogan.invalid && configForm.controls.slogan.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{"configModule.button.selectLang" | translate }}:
+                    </label>
+                    <div ngbDropdown class="d-inline-block w-100">
+                        <button type="button" class="btn btn-outline-info w-100" ngbDropdownToggle>{{ configForm.controls.language.value || ('configModule.button.selectLang' | translate)}}</button>
+                        <div ngbDropdownMenu >
+                          <button *ngFor="let item of languageOptions" type="button" (click)="setConfigFormValue('language', item.value)"  ngbDropdownItem>{{ item.name | translate}}</button>
+                        </div>
+                    </div>
+                    <div class="input-error text-info" *ngIf="configForm.controls.language.invalid">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ 'configModule.color.primary' | translate}}
+                    </label>
+                    <app-color-picker [color]="configForm.controls.mainColor.value" (changeColor)="setConfigFormValue('mainColor',$event)"></app-color-picker>
+                    <div class="input-error text-info" *ngIf="configForm.controls.mainColor.invalid">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ 'configModule.color.secondary' | translate}}
+                    </label>
+                    <app-color-picker [color]="configForm.controls.secondaryColor.value" (changeColor)="setConfigFormValue('secondaryColor',$event)"></app-color-picker>
+                    <div class="input-error text-info" *ngIf="configForm.controls.secondaryColor.invalid">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </app-step>
+    <div  class="d-flex justify-content-end pr-5 pb-5 pt-3" >
+        <button
+            type="button"
+            [disabled]="customerForm.invalid && configForm.invalid"
+            (click)="createCustomer()"
+            class="btn btn-primary btn-lg font-weight-light w- 100">
+            {{ infoModule.name | translate }}
+        </button>
+    </div>
+  </app-stepper>

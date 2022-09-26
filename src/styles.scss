@@ -1,0 +1,184 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine-dark/sass/ag-theme-alpine-dark-mixin.scss";
+.ag-theme-alpine {
+    @include ag-theme-alpine( ( alpine-active-color: #105e6b, ));
+}
+
+$background-default: #14192f;
+$card-color: #222b45;
+$item-active-color: #105e6b;
+$shadow-color: #1a1f33;
+$odd-row-color: #6060631a;
+.ag-theme-alpine-dark {
+    @include ag-theme-alpine-dark( ( alpine-active-color: $item-active-color, header-background-color: $card-color, control-panel-background-color: $shadow-color, header-cell-hover-background-color: $shadow-color, background-color: $shadow-color, odd-row-background-color: $odd-row-color, ));
+}
+
+:root {
+    --background-default: #ffffff;
+    --navbar-color: #ffffff;
+    --card-color: #ffffff;
+    --item-active-color: #105e6b;
+    --text-color: #111111;
+    --shadow-color: rgba(44, 51, 73, 0.24);
+}
+
+@media screen and (max-width: 992px) {
+    .push-right {
+        .sidebar {
+            left: 235px !important;
+        }
+    }
+}
+
+.invalid-input {
+    border-color: #dc3545;
+}
+
+.invalid-input:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.input-error {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+.center-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-success-light {
+    background-color: #c8eedb;
+}
+
+.bg-primary-light {
+    background-color: #007bff80;
+}
+
+.bg-info-light {
+    background-color: #bee7ff;
+}
+
+.bg-warning-light {
+    background-color: #fdebc2;
+}
+
+.bg-danger-light {
+    background-color: #f4c2ce;
+}
+
+.modal-content,
+.card {
+    box-shadow: 0 0.5rem 1rem 0 var(--shadow-color);
+    background-color: var(--card-color);
+    color: var(--text-color);
+}
+
+.dropdown-menu {
+    background-color: var(--card-color);
+}
+
+.dropdown-item {
+    color: var(--text-color);
+    border-radius: 3px;
+    padding: 0.35rem 1rem;
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
+.dropdown-item:hover {
+    background-color: var(--item-active-color);
+    color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-color);
+}
+
+.custom-file-label {
+    color: var(--text-color) !important;
+    background-color: var(--background-default);
+}
+
+input::placeholder {
+    background-color: var(--background-default);
+    color: var(--text-color) !important;
+}
+
+input:disabled::placeholder {
+    background-color: var(--background-disabled) !important;
+    color: var(--disabled-color) !important;
+}
+
+input:disabled {
+    background-color: var(--background-disabled) !important;
+}
+
+.form-control:focus {
+    background-color: var(--background-default);
+    color: var(--text-color);
+}
+
+.form-control {
+    background-color: var(--background-default);
+    color: var(--text-color);
+}
+
+body {
+    background: var(--background-default);
+}
+
+label {
+    color: var(--text-color);
+}
+
+textarea {
+    background: var(--background-default);
+    color: var(--text-color);
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background-color: var(--card-color);
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--background-default);
+    border-radius: 10px;
+    border: solid 1px var(--card-color);
+}
+
+.toast-body {
+    padding: 0 !important;
+}
+
+.toast {
+    min-width: 200px;
+    min-height: 50px;
+}

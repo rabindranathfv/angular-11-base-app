@@ -1,0 +1,29 @@
+<div class="mb-3">
+    <app-view-header 
+        [icon]="infoModule.icon" 
+        [viewName]="infoModule.name" 
+        [viewDescription]="infoModule.description"
+        [button]="infoModule.button">
+    </app-view-header>
+</div>
+
+<div class="grid-metrics">
+    <app-metric-card-n3 [metricCardData]="n3CardData[2]" ></app-metric-card-n3>
+    <app-metric-card-n1 [metricCardData]="n1CardData[0]"></app-metric-card-n1>
+    <app-metric-card-n3 [metricCardData]="n3CardData[0]" ></app-metric-card-n3>    
+</div>
+
+<div class="card" *ngIf="(customersData$ | async) ">
+    <div class="card-body" *ngIf="!(customersData$ | async).length">
+        <app-no-data [message]="infoModule.emptyMessage" icon="fa fa-search"></app-no-data>
+    </div>   
+    <div class="card-body" *ngIf="(customersData$ | async).length">
+        <app-search-filter-bar></app-search-filter-bar>
+        <div class="customer-card-list grid-cards">
+            <app-info-card *ngFor="let item of customersData$ | async" [data]="item" (delete)="deleteCustomer($event)"></app-info-card>
+        </div>           
+    </div>    
+</div>
+
+
+        

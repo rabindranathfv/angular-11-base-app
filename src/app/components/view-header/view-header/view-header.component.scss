@@ -1,0 +1,43 @@
+$icon-color: #105c7e;
+
+
+.view-header{
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr;
+    grid-gap: 5%;
+    h3{
+        font-weight: 300;
+    }
+    p{
+        font-weight: 200;
+    }
+    background-color: var(--card-color);
+    color: var(--text-color);
+    box-shadow: 0 0.5rem 1rem 0 var(--shadow-color);
+    border-radius: 5px;
+}
+
+.view-header-title{
+    padding-top: 10px;
+}
+
+.view-header-actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.view-header-icon{
+    display: flex;
+    align-items: center;
+    background-color: var(--card-color);
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.view-header-icon i{
+    font-size: 4vw;
+    background: -webkit-linear-gradient( right ,#1fd3bb, teal);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

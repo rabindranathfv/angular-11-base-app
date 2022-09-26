@@ -1,0 +1,7 @@
+<div *ngIf="item" class="center-align flex-column">
+    <p class="m-0">{{item.name}}</p>
+    <button class="btn {{item.active ? 'btn-primary':'btn-outline-primary'}}" (click)="change(index)" >
+        <i class="{{item.icon}}"></i>
+    </button>
+    <p class="mb-0">{{item.active ? 'ON': 'OFF'}}</p>
+</div>

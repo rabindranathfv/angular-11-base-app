@@ -1,0 +1,28 @@
+<div class="card">
+    <div *ngIf="metricCardData" class="card-body">
+        <div class="space-between">
+            <div>
+                <p class="font-weight-light ">{{metricCardData.title}}</p>
+            </div>
+            <div class="left-text font-weight-light">
+                <span >{{metricCardData.secondaryTitle}}</span> <br>
+                <span class="text-{{metricCardData.secondaryColor}}">
+                    <i class="fa fa-{{metricCardData.secondaryIcon}}"></i> 
+                    {{metricCardData.secondaryQty + metricCardData.secondaryQtyIndicator}}  
+                </span>
+            </div>
+        </div>
+        <div>
+            <h2>{{metricCardData.quantity+ metricCardData.quantityIndicator}}</h2>
+        </div>
+        <div class="mt-3">
+            <div class="progress" >
+                <div class="progress-bar bg-{{metricCardData.barColor}}" role="progressbar" [ngStyle]="{'width.%': metricCardData.barPercent}"></div>
+            </div>
+            <p class="font-weight-light">{{metricCardData.barTitle}}</p>
+        </div>
+    </div>  
+
+</div>
+
+

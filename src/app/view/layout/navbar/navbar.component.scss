@@ -1,0 +1,76 @@
+$topnav-background-color: var(--navbar-color);
+
+.navbar-logo{
+    width: 50px;
+    margin-right: 15px;
+}
+
+.navbar-left{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.no-focus:focus{
+    outline: 0 !important;
+    border: none !important;
+    outline-style: none !important;
+    box-shadow: none;    
+}
+
+@media screen and (min-width: 992px) {
+    #toggle-icon{
+        display: none;
+    }  
+}
+#toggle-icon,
+.navbar-item{
+    color: var(--text-color);
+    background-color: $topnav-background-color;
+    border: transparent;
+    font-size: 1.5em;
+}
+
+
+
+:host {
+    .navbar {
+        box-shadow: 0 0.5rem 1rem 0 var(--shadow-color);
+
+        display: flex;
+        justify-content: space-between;
+        background-color: $topnav-background-color;
+        .navbar-brand {
+            color: var(--text-color);
+        }
+        .nav-item > a {
+            color: var(--text-color);
+            &:hover {
+                color: var(--text-color);
+            }
+        }
+    }
+    .messages {
+        width: 300px;
+        .media {
+            border-bottom: 1px solid #ddd;
+            padding: 5px 10px;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+        .media-body {
+            h5 {
+                font-size: 13px;
+                font-weight: 600;
+            }
+            .small {
+                margin: 0;
+            }
+            .last {
+                font-size: 12px;
+                margin: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,69 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+    <div class="list-group">
+        <a *ngFor="let item of SidenavItems;" routerLink="{{item.url}}" [class.router-link-active]="isActiveRoute(item.url)" class="list-group-item">
+            <i class="fa fa-fw fa-{{item.icon}}"></i>&nbsp;
+            <span>{{ item.name | translate }}</span>
+        </a>
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('submenu1')">
+                <i class="fa fa-plus"></i>&nbsp;
+                <span>{{ 'SubMenu' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="subMenuItems[0].active">
+                <ul class="submenu">
+                    <li>
+                        <a href="javascript:void(0)" class="list-group-item">
+                            <i class="fa fa-plus"></i>&nbsp;
+                            <span>{{ 'Item' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="nested-menu">
+                            <a class="list-group-item" (click)="addExpandClass('submenu2')">
+                                <i class="fa fa-plus"></i>&nbsp;
+                                <span>{{ 'SubMenu' | translate }}</span>
+                            </a>
+                            <li class="nested" [class.expand]="subMenuItems[1].active">
+                                <ul class="submenu">
+                                    <li>
+                                        <a class="list-group-item" href="javascript:void(0)">
+                                            <i class="fa fa-plus"></i>&nbsp;
+                                            <span>{{ 'Item' | translate }}</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="list-group-item" href="javascript:void(0)">
+                                            <i class="fa fa-plus"></i>&nbsp;
+                                            <span>{{ 'Item' | translate }}</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="list-group-item" href="javascript:void(0)">
+                                            <i class="fa fa-plus"></i>&nbsp;
+                                            <span>{{ 'Item' | translate }}</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </div>
+                    </li>                    
+                    <li>
+                        <a class="list-group-item" href="javascript:void(0)">
+                            <i class="fa fa-plus"></i>&nbsp;
+                            <span>{{ 'Item' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="javascript:void(0)">
+                            <i class="fa fa-plus"></i>&nbsp;
+                            <span>{{ 'Item' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+    </div>
+    <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
+        <i class="fa fa-fw fa-angle-double-{{collapsed?'right':'left'}}"></i>&nbsp;
+    </div>
+</nav>

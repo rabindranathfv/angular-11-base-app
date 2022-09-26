@@ -1,0 +1,20 @@
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 1%;
+}
+
+.grid-2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1%;
+}
+.module-status{
+    display: flex;
+    justify-content: space-around;
+}
+
+.logos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

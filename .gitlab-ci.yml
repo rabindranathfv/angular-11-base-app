@@ -1,0 +1,147 @@
+image: node:latest
+
+stages:
+  - check_build
+  - build_dev
+  - build_qa
+  - build_prod
+  - test
+  - deploy_qa
+  - deploy_dev
+  - deploy
+
+check_build:
+  stage: check_build
+  cache:
+    key: "Angular11"
+    paths:
+      - node_modules/
+  script:
+    - npm -v
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - node_modules/
+
+build_dev:
+  stage: build_dev
+  cache:
+    key: "Angular11"
+    paths:
+      - node_modules/
+  script:
+    - npm -v
+    - npm install
+    - npm run build-development
+  dependencies:
+    - check_build
+  artifacts:
+    paths:
+      - dist-development/
+      - node_modules/
+  only:
+    - development
+
+build_qa:
+  stage: build_qa
+  cache:
+    key: "Angular11"
+    paths:
+      - node_modules/
+  script:
+    - npm -v
+    - npm install
+    - npm run build-qa
+  dependencies:
+    - check_build
+  artifacts:
+    paths:
+      - dist-qa/
+      - node_modules/
+  only:
+    - qa
+
+build_prod:
+  stage: build_prod
+  cache:
+    key: "Angular11"
+    paths:
+      - node_modules/
+  script:
+    - npm -v
+    - npm install
+    - npm run build-prod
+  dependencies:
+    - check_build
+  artifacts:
+    paths:
+      - dist/
+      - node_modules/
+  only:
+    - master
+
+test_lint:
+  stage: test
+  cache:
+    policy: pull
+  script:
+    - npm run lint
+  dependencies:
+    - check_build
+
+test_coverage:
+  stage: test
+  cache:
+    policy: pull
+  script:
+    - npm run test:coverage
+  coverage:
+    '/Statements.*?(\d+(?:\.\d+)?)%/'
+  dependencies:
+    - check_build
+
+deploy_dev:
+  stage: deploy_dev
+  script:
+    - echo $CI_ENVIRONMENT_NAME
+    - npm run deploy-development
+  environment:
+    name: dev
+    url: $HOSTING_URL_DEV
+  dependencies:
+    - build_dev
+  cache:
+    policy: pull
+  only:
+    - development
+
+deploy_qa:
+  stage: deploy_qa
+  script:
+    - echo $CI_ENVIRONMENT_NAME
+    - npm run deploy-qa
+  environment:
+    name: qa
+    url: $HOSTING_URL_QA
+  dependencies:
+    - build_qa
+  cache:
+    policy: pull
+  only:
+    - qa
+
+deploy_prod:
+  stage: deploy
+  script:
+    - echo $CI_ENVIRONMENT_NAME
+    - npm run deploy-prod
+  environment:
+    name: production
+    url: $HOSTING_URL
+  dependencies:
+    - build_prod
+  cache:
+    policy: pull
+  only:
+    - master

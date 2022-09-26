@@ -1,0 +1,15 @@
+<div class="panel" >
+
+        <div class="item" [ngClass]="{ active: active, inactive: !active }">
+          <span class="step-circle">{{ stepIndex }}</span>
+          <span class="step-title">{{stepTitle | translate}}</span>
+        </div>
+
+    <div *ngIf="active" class="content">
+        <ng-content></ng-content>
+        <div class="buttons">
+            <button class="btn btn-secondary" (click)="previousStep()"> {{ "stepModule.button.previous" | translate }} </button>
+            <button class="btn btn-primary" (click)="nextStep()"> {{ "stepModule.button.next" | translate }} </button>
+        </div>
+    </div>    
+</div>

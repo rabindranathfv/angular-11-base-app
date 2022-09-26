@@ -1,0 +1,20 @@
+<div class="mb-3">
+    <app-view-header 
+        *ngIf="(permissions$ | async) "
+        [icon]="infoModule.icon" 
+        [viewName]="infoModule.name" 
+        [viewDescription]="infoModule.description"
+        [button] = "(permissions$ | async).user.create ? infoModule.button : null"
+    ></app-view-header>
+</div>
+<div class="card" *ngIf="(usersData$ | async) ">
+    <div class="card-body" *ngIf="!(usersData$ | async).length">
+        <app-no-data [message]="infoModule.emptyMessage" icon="fa fa-search"></app-no-data>
+    </div>   
+    <div class="card-body" *ngIf="(usersData$ | async).length">
+        <app-search-filter-bar></app-search-filter-bar>
+        <div class="customer-card-list grid-cards">
+            <app-info-card *ngFor="let item of usersData$ | async" [data]="item" type = "user" (delete)="deleteUser($event)"></app-info-card>
+        </div>        
+    </div>    
+</div>

@@ -1,0 +1,305 @@
+<div class="mb-3">
+  <app-view-header
+    [icon]="infoModule.icon"
+    [viewName]="infoModule.name"
+    [viewDescription]="infoModule.description"
+  >
+  </app-view-header>
+</div>
+
+<app-tabset *ngIf="(currentOwner$ | async)" >
+  <app-tab [tabTitle]="'ownerModule.viewOwnerComponent.tab.basic'">
+    <div class="row">
+      <div class="col">
+        <div class="card mb-2 half">
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-user"></i>
+              {{
+                "ownerModule.labels.name" | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).user.firstName }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-user"></i>
+              {{
+                "ownerModule.labels.lastName"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).user.lastName }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-id-card-o"></i>
+              {{
+                "ownerModule.labels.dni" | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).user.dni }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-envelope-o"></i>
+              {{
+                "ownerModule.labels.email" | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).user.email }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-phone"></i>
+              {{
+                "ownerModule.labels.phone" | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).user.phone }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-mobile"></i>
+              {{
+                "ownerModule.labels.mobile" | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).user.mobile }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card mb-2 half">
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-briefcase"></i>
+              {{
+                "ownerModule.labels.business"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).business }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-line-chart"></i>
+              {{
+                "ownerModule.labels.position"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).position }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-calendar"></i>
+              {{
+                "ownerModule.labels.admissionDate"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).admissionDate }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-briefcase"></i>
+              {{
+                "ownerModule.labels.portfolioExecutives"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).portfolioExecutives }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="card mb-2 half">
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-percent"></i>
+              {{
+                "ownerModule.labels.administrationPercent"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).administrationPercent }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-percent"></i>
+              {{
+                "ownerModule.labels.brokeragePercent"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).brokeragePercent }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-money"></i>
+              {{
+                "ownerModule.labels.fixedAmount"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).fixedAmount }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card mb-2 half">
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-money"></i>
+              {{
+                "ownerModule.labels.bank" | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).account.bank }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-user"></i>
+              {{
+                "ownerModule.labels.titularFirstName"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).account.titularFirstName + ' ' + (currentOwner$ | async).account.titularLastName }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-id-card-o"></i>
+              {{
+                "ownerModule.labels.titularTaxInternationalIdentifier"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).account.titularTaxInternationalIdentifier }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col mb-4">
+        <div class="card mb-2">
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-commenting-o"></i>
+              {{
+                "ownerModule.labels.observations"
+                  | translate
+              }}:
+            </h5>
+            <textarea readonly> {{ (currentOwner$ | async).observations }} </textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </app-tab>
+
+  <app-tab [tabTitle]="'ownerModule.viewOwnerComponent.tab.address'">
+    <div class="row">
+      <div class="col mb-4">
+        <div class="card mb-2 half">
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-building"></i>
+              {{
+                "ownerModule.labels.department"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).user.department }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-road"></i>
+              {{
+                "ownerModule.labels.street"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).user.street }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-address-card-o"></i>
+              {{
+                "ownerModule.labels.comercialAddress"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).user.comercialAddress }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-home"></i>
+              {{
+                "ownerModule.labels.number"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).user.number }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </app-tab>
+
+  <app-tab [tabTitle]="'ownerModule.viewOwnerComponent.tab.assistant'">
+    <div class="row">
+      <div class="col mb-4">
+        <div class="card mb-2 half">
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-user"></i>
+              {{
+                "ownerModule.labels.assistantFirstName"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).assistantFirstName }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-user"></i>
+              {{
+                "ownerModule.labels.assistantLastName"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).assistantLastName }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-phone"></i>
+              {{
+                "ownerModule.labels.assistantPhone"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).assistantPhone }}</span>
+          </div>
+          <div class="container m-3">
+            <h5>
+              <i class="fa fa-envelope-o"></i>
+              {{
+                "ownerModule.labels.assistantEmail"
+                  | translate
+              }}:
+            </h5>
+            <span>{{ (currentOwner$ | async).assistantEmail }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </app-tab>
+</app-tabset>

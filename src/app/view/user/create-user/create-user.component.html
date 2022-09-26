@@ -1,0 +1,340 @@
+<ng-template #successMessage>
+    <app-alert 
+        [isVisible]="true" [alertType]="'success'" 
+        [message]="viewOption == 'create' ? 'userModule.messages.createSuccess': 'userModule.messages.editSuccess' " >
+    </app-alert>
+</ng-template>
+<ng-template #errorMessage>
+    <app-alert [isVisible]="true" [alertType]="'danger'" [message]="(error$ | async).error.message"></app-alert>
+</ng-template>
+
+<div class="mb-3">
+    <app-view-header
+      [icon]="infoModule.icon"
+      [viewName]="infoModule.name"
+      [viewDescription]="infoModule.description"
+    ></app-view-header>
+</div>
+  
+  <app-stepper>
+    
+        <app-step [stepTitle]="'userModule.createUserComponent.step.basic'">
+            <form [formGroup]="userForm" class="pr-5 mb-5">        
+                <div class="basic-form-grid">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "userModule.labels.firstName" | translate }}: 
+                    </label>
+                    <input 
+                        formControlName="firstName" 
+                        [class.invalid-input]="userForm.controls.firstName.invalid && userForm.controls.firstName.touched"                        
+                        type="text" class="form-control" 
+                        placeholder="{{'userModule.labels.firstName'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="userForm.controls.firstName.invalid && userForm.controls.firstName.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "userModule.labels.lastName" | translate }}: 
+                    </label>
+                    <input   
+                        [class.invalid-input]="userForm.controls.lastName.invalid && userForm.controls.lastName.touched"
+                        formControlName="lastName"
+                        type="text" class="form-control" 
+                        placeholder="{{'userModule.labels.lastName'| translate}}"
+                    />
+                    <div  class="input-error" *ngIf="userForm.controls.lastName.invalid && userForm.controls.lastName.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "userModule.labels.dni" | translate }}: 
+                    </label>
+                    <input  
+                        [class.invalid-input]="userForm.controls.dni.invalid && userForm.controls.dni.touched"
+                        formControlName="dni"
+                        type="text" class="form-control" 
+                        placeholder="{{'userModule.labels.dni'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="userForm.controls.dni.invalid && userForm.controls.dni.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "userModule.labels.email" | translate }}: 
+                    </label>
+                    <input  
+                        [class.invalid-input]="userForm.controls.email.invalid && userForm.controls.email.touched"
+                        formControlName="email"
+                        type="text" class="form-control" 
+                        placeholder="{{'userModule.labels.email'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="userForm.controls.email.invalid && userForm.controls.email.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "userModule.labels.phone" | translate }}: 
+                    </label>
+                    <input
+                        [class.invalid-input]="userForm.controls.phone.invalid && userForm.controls.phone.touched"
+                        formControlName="phone"
+                        type="text" class="form-control" 
+                        placeholder="{{'userModule.labels.phone'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="userForm.controls.phone.invalid && userForm.controls.phone.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "userModule.labels.mobile" | translate }}: 
+                    </label>
+                    <input
+                        [class.invalid-input]="userForm.controls.mobile.invalid && userForm.controls.mobile.touched"
+                        formControlName="mobile"
+                        type="text" class="form-control" 
+                        placeholder="{{'userModule.labels.mobile'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="userForm.controls.mobile.invalid && userForm.controls.mobile.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "userModule.labels.business" | translate }}: 
+                    </label>
+                    <input  
+                        [class.invalid-input]="userForm.controls.business.invalid && userForm.controls.business.touched"
+                        formControlName="business"
+                        type="text" class="form-control" 
+                        placeholder="{{'userModule.labels.business'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="userForm.controls.email.invalid && userForm.controls.business.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "userModule.labels.position" | translate }}: 
+                    </label>
+                    <input  
+                        [class.invalid-input]="userForm.controls.position.invalid && userForm.controls.position.touched"
+                        formControlName="position"
+                        type="text" class="form-control" 
+                        placeholder="{{'userModule.labels.position'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="userForm.controls.position.invalid && userForm.controls.position.touched">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{"userModule.labels.role" | translate }}:
+                    </label>
+                    <div ngbDropdown class="d-inline-block w-100">
+                        <button type="button" class="btn btn-outline-info w-100" ngbDropdownToggle>{{ userForm.controls.roleId.value || ('userModule.labels.role' | translate) }}</button>
+                        <div ngbDropdownMenu >
+                            <button *ngFor="let item of (roles$ | async)" type="button" (click)="setFormValue('roleId', item.id)"  ngbDropdownItem>
+                                {{ item.name }}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="input-error text-info" *ngIf="userForm.controls.roleId.invalid">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "userModule.labels.password" | translate }}: 
+                    </label>
+                    <input  
+                        [class.invalid-input]="userForm.controls.password.invalid && userForm.controls.password.touched"
+                        formControlName="password"
+                        type="password" class="form-control" 
+                        placeholder="{{'userModule.labels.password'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="userForm.controls.password.invalid && userForm.controls.password.touched ">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ "userModule.labels.cPassword" | translate }}: 
+                    </label>
+                    <input  
+                        [class.invalid-input]="userForm.controls.cPassword.invalid && userForm.controls.cPassword.touched || (userForm.controls.cPassword.value != userForm.controls.password.value)"
+                        formControlName="cPassword"
+                        type="password" class="form-control" 
+                        placeholder="{{'userModule.labels.cPassword'| translate}}"
+                    />
+                    <div class="input-error" *ngIf="userForm.controls.cPassword.invalid && userForm.controls.cPassword.touched" >
+                        {{'formValidation.required' | translate }}
+                    </div>
+                    <div class="input-error" *ngIf="userForm.controls.cPassword.valid && (userForm.controls.cPassword.value != userForm.controls.password.value)">
+                        {{ "userModule.messages.cPasswordError" | translate }}
+                    </div>
+                </div>
+                </div>
+            </form>
+        </app-step>
+        <app-step [stepTitle]="'userModule.createUserComponent.step.address'">
+            <form [formGroup]="userForm" class="pr-5">  
+                <div class="basic-form-grid mb-2">
+                    <div class="form-group">
+                        <label class="font-weight-bold">
+                            {{"userModule.labels.department" | translate }}:
+                        </label>
+                        <input  
+                            [class.invalid-input]="userForm.controls.department.invalid && userForm.controls.department.touched"
+                            formControlName="department"
+                            type="text" class="form-control" 
+                            placeholder="{{'userModule.labels.department'| translate}}"
+                        />
+                        <div class="input-error" *ngIf="userForm.controls.department.invalid && userForm.controls.department.touched">
+                            {{'formValidation.required' | translate }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold">
+                            {{"userModule.labels.street" | translate }}:
+                        </label>
+                        <input  
+                            [class.invalid-input]="userForm.controls.street.invalid && userForm.controls.street.touched"
+                            formControlName="street"
+                            type="text" class="form-control" 
+                            placeholder="{{'userModule.labels.street'| translate}}"
+                        />
+                        <div class="input-error" *ngIf="userForm.controls.street.invalid && userForm.controls.street.touched">
+                            {{'formValidation.required' | translate }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold">
+                            {{"userModule.labels.number" | translate }}:
+                        </label>
+                        <input  
+                            [class.invalid-input]="userForm.controls.number.invalid && userForm.controls.number.touched"
+                            formControlName="number"
+                            type="text" class="form-control" 
+                            placeholder="{{'userModule.labels.number'| translate}}"
+                        />
+                        <div class="input-error" *ngIf="userForm.controls.number.invalid && userForm.controls.number.touched">
+                            {{'formValidation.required' | translate }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold">
+                            {{"userModule.labels.comercialAddress" | translate }}:
+                        </label>
+                        <input  
+                            [class.invalid-input]="userForm.controls.comercialAddress.invalid && userForm.controls.comercialAddress.touched"
+                            formControlName="comercialAddress"
+                            type="text" class="form-control" 
+                            placeholder="{{'userModule.labels.comercialAddress'| translate}}"
+                        />
+                        <div class="input-error" *ngIf="userForm.controls.comercialAddress.invalid && userForm.controls.comercialAddress.touched">
+                            {{'formValidation.required' | translate }}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </app-step>
+        <app-step [stepTitle]="'userModule.createUserComponent.step.otherContact'">
+            <form [formGroup]="userForm" class="pr-5">
+                <div class="basic-form-grid mb-3">
+                    <div class="form-group">
+                        <label class="font-weight-bold">
+                            {{"userModule.labels.fullName" | translate }}:
+                        </label>
+                        <input  
+                            [class.invalid-input]="userForm.controls.anotherContactFullName.invalid && userForm.controls.anotherContactFullName.touched"
+                            formControlName="anotherContactFullName"
+                            type="text" class="form-control" 
+                            placeholder="{{'userModule.labels.fullName'| translate}}"
+                        />
+                        <div class="input-error" *ngIf="userForm.controls.anotherContactFullName.invalid && userForm.controls.anotherContactFullName.touched">
+                            {{'formValidation.required' | translate }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold">
+                            {{"userModule.labels.phone" | translate }}:
+                        </label>
+                        <input  
+                            [class.invalid-input]="userForm.controls.anotherContactPhone.invalid && userForm.controls.anotherContactPhone.touched"
+                            formControlName="anotherContactPhone"
+                            type="text" class="form-control" 
+                            placeholder="{{'userModule.labels.phone'| translate}}"
+                        />
+                        <div class="input-error" *ngIf="userForm.controls.anotherContactPhone.invalid && userForm.controls.anotherContactPhone.touched">
+                            {{'formValidation.required' | translate }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold">
+                            {{"userModule.labels.email" | translate }}:
+                        </label>
+                        <input  
+                            [class.invalid-input]="userForm.controls.anotherContactEmail.invalid && userForm.controls.anotherContactEmail.touched"
+                            formControlName="anotherContactEmail"
+                            type="text" class="form-control" 
+                            placeholder="{{'userModule.labels.email'| translate}}"
+                        />
+                        <div class="input-error" *ngIf="userForm.controls.anotherContactEmail.invalid && userForm.controls.anotherContactEmail.touched">
+                            {{'formValidation.required' | translate }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold">
+                            {{"userModule.labels.observations" | translate }}:
+                        </label>
+                        <textarea  
+                            [class.invalid-input]="userForm.controls.observations.invalid && userForm.controls.observations.touched"
+                            formControlName="observations"
+                            type="text" class="form-control" 
+                            placeholder="{{'userModule.labels.observations'| translate}}"
+                        ></textarea>
+                        <div class="input-error" *ngIf="userForm.controls.observations.invalid && userForm.controls.observations.touched">
+                            {{'formValidation.required' | translate }}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </app-step>
+        <app-step [stepTitle]="'userModule.createUserComponent.step.files'">
+            <div class="images-grid">
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ 'userModule.labels.dniFile' | translate}}
+                    </label>
+                    <div class="input-error text-info" *ngIf="userForm.controls.dniFile.invalid">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">
+                        {{ 'userModule.labels.image' | translate}}
+                    </label>
+                    <div class="input-error text-info" *ngIf="userForm.controls.image.invalid">
+                        {{'formValidation.required' | translate }}
+                    </div>
+                </div>
+            </div>
+        </app-step>
+        <div class="d-flex justify-content-end pr-5 pb-5 pt-3" >
+            <button
+                type="button"
+                [disabled]="userForm.invalid || (userForm.controls.cPassword.value != userForm.controls.password.value)" 
+                (click)="createUser()"
+                class="btn btn-primary btn-lg font-weight-light w- 100">
+                {{ infoModule.name | translate }}
+            </button>
+        </div>
+  </app-stepper>

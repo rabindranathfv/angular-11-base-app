@@ -1,0 +1,66 @@
+
+//$bg-color : #557481;
+
+.center-align{
+    background: linear-gradient(to right, var(--background-default), #557481);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.card{
+    width: 25em !important; 
+}
+
+.login-img {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-img h5{
+    margin: 0;
+    margin-left: 10px;
+}
+
+.end-align{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.full-height{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.icon-right .form-control {
+    padding-right: 2.2rem;
+}
+
+.icon-right .form-control-icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    color: var(--text-color);
+    font-size: 1.3em;
+}
+
+.btn-link {
+    font-weight: bold;
+    color: #17a2b8;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    font-weight: bold;
+    color: #085a66;
+}

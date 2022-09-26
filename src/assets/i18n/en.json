@@ -1,0 +1,590 @@
+{
+  "demo": {
+    "title": "Translation demo",
+    "text": "This is a simple demonstration app for ngx-translate",
+    "greeting": "Hello {{name}}!"
+  },
+
+  "formValidation": {
+      "required": "This field is required"
+  },
+
+  "uploadFileComponent": {
+    "buttons": {
+      "upload": "Upload Image"
+    },
+    "labels": {
+      "selectImage": "Select Image"
+    }
+  },
+
+  "resetModule": {
+    "title": "Recover your Password",
+    "labels": {
+      "email": "Email"
+    },
+    "buttons": {
+      "recover": "Next"
+    },
+    "messages": {
+      "resetError": "Email not found!",
+      "resetSuccess": "We have sent a password recovery email.",
+      "emailError": "Please provide a valid email."
+    }
+  },
+
+  "changePasswordModule": {
+    "title": "Change your Password",
+    "labels": {
+      "password": "Password",
+      "cPassword": "Confirm Password"
+    },
+    "buttons": {
+      "change": "Change"
+    },
+    "messages": {
+      "changeError": "An error occurred while changing the password.",
+      "changeSuccess": "Your password has been changed successfully",
+      "passwordError": "Please provide a valid password.",
+      "cPasswordError": "Passwords do not match."
+    }
+  },
+
+  "viewHeaderModule": {
+    "actions": "Actions"
+  },
+
+  "searchFilterBarModule": {
+    "search": "Search",
+    "filters": "Filters"
+  },
+
+  "accountListModule": {
+    "listTitle": "Accounts List"
+  },
+
+  "loginModule": {
+    "labels": {
+      "email": "Email",
+      "password": "Password"
+    },
+    "buttons": {
+      "signIn": "Sign in",
+      "contact": "Contact us",
+      "passwordReset": " Forgot password?"
+    },
+    "messages": {
+      "loginError": "Invalid credentials!",
+      "loginSuccess": "Login successful",
+      "emailError": "Please provide a valid email.",
+      "passwordError": "Please provide a password."
+    }
+  },
+
+  "dashboardModule": {
+    "name": "Dashboard",
+    "description": "Dashboard module description"
+  },
+
+  "ownerModule": {
+    "name": "Owners",
+    "description": "Owners module description",
+    "emptyMessage": "No coincidences",
+    "tooltip": {
+      "edit": "Edit",
+      "mandate": "Mandate",
+      "activate": "Activate",
+      "deactivate": "Deactivate",
+      "view": "View Owner"
+    },
+
+    "viewOwnerComponent": {
+      "name": "View Owner",
+      "description": "View Owner Component Description",
+      "tab": {
+        "basic": "Basic Data",
+        "address": "Address Data",
+        "assistant": "Assistant Data"
+      }
+    },
+
+    "addOwnerComponent": {
+      "name": "Add Owner",
+      "description": "Add Owner Module description",
+      "button": {
+        "save": "Save",
+        "previous": "Previous",
+        "next": "Next"
+      },
+      "step": {
+        "info": "Owner Info",
+        "assistant": "Owner Assistant Info",
+        "transfer": "Transfer Data",
+        "access": "Access Data"
+      }
+    },
+
+    "editOwnerComponent": {
+      "name": "Edit Owner",
+      "description": "Edit Owner Module description"
+    },
+
+    "labels": {
+      "department": "Departamento",
+      "street": "Street",
+      "number": "Number",
+      "comercialAddress": "Comercial Address",
+      "user": "User",
+      "name": "Name",
+      "lastName": "Last Name",
+      "dni": "DNI",
+      "address": "Address",
+      "email": "Email Address",
+      "phone": "Phone",
+      "mobile": "Mobile",
+      "business": "Bussines",
+      "position": "Position",
+      "commercialAddress": "Commercial Address",
+      "admissionDate": "Date of Admission",
+      "fixedAmount": "Fixed Amount",
+      "administrationPercent": "Administration %",
+      "brokeragePercent": "Brokerage %",
+      "portfolioExecutives": "Portfolio Executive",
+      "observations": "Observations",
+      "assistantFirstName": "Assistant's Name",
+      "assistantLastName": "Assistant's  Last Name",
+      "assistantPhone": "Assistant's Phone",
+      "assistantEmail": "Assistant's Email",
+      "bank": "Bank",
+      "accountType": "Account Type",
+      "accountNumber": "Account Number",
+      "titularFirstName": "Bank Owner Name",
+      "titularLastName": "Bank Owner Last Name",
+      "titularTaxInternationalIdentifier": "Bank Owner DNI",
+      "username": "Username",
+      "password": "Password"
+    },
+    "messages": {
+      "createSuccess": "New owner created.",
+      "editSuccess": "Owner edited."
+    }
+  },
+
+  "advisorModule": {
+    "name": "Advisors",
+    "description": "Advisors module description",
+    "tooltip": {
+      "edit": "Edit",
+      "mandate": "Mandate",
+      "activate": "Activate",
+      "deactivate": "Deactivate",
+      "view": "View"
+    },
+
+    "viewAdvisorComponent": {
+      "name": "Details View",
+      "description": "View Advisor Component Description",
+      "tab": {
+        "basic": "Basic Information",
+        "bank": "Bank Information"
+      },
+      "label": {
+        "basic": {
+          "name": "Name",
+          "lastName": "Last Name",
+          "dni": "dni",
+          "email": "Email",
+          "phone": "Phone",
+          "mobile": "Mobile",
+          "address": "Address",
+
+          "observations": "Observations"
+        },
+
+        "bank": {
+          "bank": "Bank",
+          "account": "Account type",
+          "commercial": "Commercial Address",
+          "administration": "Administration %",
+          "brokerage": "Brokerage %"
+        }
+      }
+    },
+
+    "addAdvisorComponent": {
+      "name": "Add Advisor",
+      "description": "Add Advisor Module description",
+
+      "button": {
+        "save": "Save",
+        "previous": "Previous",
+        "next": "Next"
+      },
+      "step": {
+        "info": "Basic Info",
+        "bank": "Bank Info"
+      },
+
+      "label": {
+        "name": "Name",
+        "lastName": "Last Name",
+        "dni": "DNI",
+        "address": "Address",
+        "email": "Email",
+        "phone": "Phone",
+        "mobile": "Mobile",
+
+        "bank": "Bank",
+        "accountType": "Account Type",
+        "accountNumber": "Account Number",
+        "bankOwnerName": "Bank Owner Name",
+        "administration": "Administration %",
+        "brokerage": "Brokerage %"
+      }
+    }
+  },
+
+  "ownershipModule": {
+    "name": "Ownerships",
+    "emptyMessage": "No coincidences",
+    "description": "Ownerships module description",
+    "tooltip": {
+      "edit": "Edit",
+      "mandate": "Mandate",
+      "activate": "Activate",
+      "deactivate": "Deactivate",
+      "view": "View Ownership",
+      "comments": "Comments"
+    },
+
+    "viewOwnershipComponent": {
+      "name": "View Ownership",
+      "description": "View Ownership Component Description"
+    },
+
+    "addOwnershipComponent": {
+      "name": "Add Ownership",
+      "description": "Add Ownership Module description",
+
+      "button": {
+        "save": "Save",
+        "previous": "Previous",
+        "next": "Next"
+      },
+
+      "step": {
+        "basic": "Basic Info",
+        "address": "Address",
+        "info": "Ownership Info",
+        "admin": "Admin and Service Contracts",
+        "features": "Features",
+        "more": "More",
+        "images": "Images"
+      }
+    },
+    "editOwnershipComponent": {
+      "name": "Edit Ownership",
+      "description": "Edit Ownership Module description"
+    },
+    "labels": {
+      "owner": "Owner",
+      "admissionDate": "Date of Admission",
+      "broker": "Broker",
+      "realState": "Real State",
+      "availableDate": "Available Date",
+      "maximumAmount": "Maximum Amount",
+      "minimumAmount": "Minimum Amount",
+
+      "street": "Street",
+      "number": "Number",
+      "department": "Department",
+      "communes": "Communes",
+
+      "isAssertion": "Is assertion",
+      "propertyType": "Ownership Type",
+      "hasWarehouse": "Has Warehouse",
+      "cellarN": "Number",
+      "hasParking": "Has Parking",
+      "parkingN": "Number",
+      "role": "Role",
+
+      "administrationPhone": "Admin Phone",
+      "administrationContact": "Admin Contact",
+      "advisory": "It is Advisory?",
+      "yes": "Yes",
+      "no": "No",
+      "waterClientNumber": "Water Client Nº",
+      "electricityClientNumber": "Elect Client Nº",
+      "gasClientNumber": "Gas Client Nº",
+
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "surfaceM2": "Surface (M2)",
+      "metro": "Metro",
+      "orientation": "Orientation",
+
+      "moreFeatures": "More Features",
+      "images": "Images"
+    },
+    "messages": {
+      "createSuccess": "New ownership created.",
+      "editSuccess": "Ownership edited."
+    }
+  },
+
+  "customerModule": {
+    "name": "Customers",
+    "description": "Customers module description",
+    "emptyMessage": "No coincidences",
+    "viewCustomerComponent": {
+      "name": "View Customer",
+      "description": "View Customer Component Description",
+      "tab": {
+        "basic": "Basic Information",
+        "config": "Configuration"
+      }
+    },
+    "createCustomerComponent": {
+      "name":"Create Customer",
+      "description":"Create customer description",
+      "step" : {
+        "basic": "Basic Information",
+        "config": "Configuration"
+      }
+    },
+    "editCustomerComponent": {
+      "name":"Edit Customer",
+      "description":"Edit customer description"
+    },
+    "labels":{
+      "name": "Name",
+      "country": "Country",
+      "taxInternationalIdentifier": "ID",
+      "address": "Address",
+      "legalRepresentative": "Legal Representative",
+      "email": "Email",
+      "primaryPhone": "Primary Phone",
+      "secondaryPhone": "Secondary Phone"
+    },
+    "messages": {
+      "createSuccess": "New customer created.",
+      "editSuccess": "Customer edited."
+    }
+  },
+
+  "userModule": {
+    "name": "Users",
+    "description": "Users module description",
+    "emptyMessage": "No coincidences",
+    "createUserComponent": {
+      "name":"Create User",
+      "description":"Create user description",
+      "step" : {
+        "basic": "Basic Information",
+        "otherContact": "Other Information",
+        "address": "Address Information",
+        "files": "Files"
+      }
+    },
+    "editUserComponent": {
+      "name":"Edit User",
+      "description":"Edit user description"
+    },
+    "viewUserComponent": {
+      "name":"View User",
+      "description":"View user description"
+    },
+    "labels":{
+      "firstName": "Name",
+      "lastName": "Last Name",
+      "dni": "DNI",
+      "phone": "Phone",
+      "mobile": "Mobile",
+      "email": "Email",
+      "position": "Position",
+      "business": "Bussiness",
+      "password": "Password",
+      "cPassword": "Confirm Password",
+      "role": "Select role",
+      "department": "Departamento",
+      "street": "Street",
+      "number": "Number",
+      "comercialAddress": "Comercial Address",
+      "fullName": "Full Name",
+      "dniFile": "DNI File",
+      "image": "Profile Image",
+      "observations": "Observations"
+    },
+    "messages": {
+      "cPasswordError": "Passwords do not match.",
+      "createSuccess": "New user created.",
+      "editSuccess": "User edited."
+    }
+  },
+
+  "accountModule": {
+    "name": "Accounts",
+    "description": "Accounts module description"
+  },
+
+  "contractModule": {
+    "name": "Contracts",
+    "description": "Contracts module description",
+
+    "addContractComponent": {
+      "name": "Add Contract",
+      "description": "Add Contract Module description",
+
+      "button": {
+        "save": "Save",
+        "previous": "Previous",
+        "next": "Next"
+      },
+
+      "step": {
+        "holder": "Holder Info",
+        "ownership": "Ownership Info",
+        "contract": "Contract Info",
+        "guarantee": "Guarantee",
+        "payment": "Payment"
+      },
+
+      "label": {
+        "name1": "Holder's Full Name",
+        "name2": "2nd Holder's Full Name",
+        "rut": "Rut",
+        "mail1": "Holder's E-mail",
+        "mail2": "2nd Holder's E-mail",
+        "phone": "Phone",
+        "mobile": "Mobile",
+        "nationality": "Nationality",
+
+        "oStreet": "Street",
+        "oNumber": "Number",
+        "oDepartment": "Department",
+        "end": "End of Ownership",
+        "broker": "Broker",
+        "aPhone": "Admin Phone",
+        "aMobile": "Admin Mobile",
+
+        "status": "Status",
+        "antiquity": "Antiquity",
+        "aDate": "Admission Date",
+        "lessee": "Lessee",
+        "lessor": "Lessor",
+        "executive": "Executive",
+
+        "gAmount": "Guarantee Amount",
+        "previousLessee": "Previous Lessee",
+        "contractStart": "Contract Start Date",
+        "contractEnd": "Contract End Date",
+        "currentDelivery": "Actual Delivery Date",
+        "estimatedPayment": "Estimated Payment Date",
+        "requestedByName": "Requested by Name",
+
+        "pAmount": "Payment Amount",
+        "pStatus": "Payment Status",
+        "pDate": "Payment Date",
+        "pStreet": "Street",
+        "pNumber": "Number",
+        "pDepartment": "Department"
+      }
+    }
+  },
+
+  "maintenanceModule": {
+    "name": "Maintenance",
+    "description": "Maintenance module description"
+  },
+
+  "profileModule": {
+    "button": {
+      "save": "Save"
+    },
+    "tab": {
+      "basic": "Basic Info",
+      "address": "Address Info",
+      "images": "Images",
+      "otherContact": "Other Contact Info"
+    },
+    "label": {
+      "userImage": "Picture",
+      "name": "Name",
+      "lastName": "Last Name",
+      "dni": "DNI",
+      "business": "Bussines",
+      "position": "Position",
+      "department": "Department",
+      "street": "Street",
+      "number": "Number",
+      "comercialAddress": "Comercial Address",
+      "email": "Email Address",
+      "phone": "Phone",
+      "mobile": "Mobile",
+      "fullName": " Full Name"
+    }
+  },
+
+  "configModule": {
+    "name": "Configuration",
+    "description": "Configuration module description",
+    "cards": {
+      "visualConfig": {
+        "title": "Visual configuration",
+        "buttons": {
+          "save": "Save"
+        }
+      }
+    },
+    "color": {
+      "primary": "Primary Color",
+      "secondary": "Secondary Color"
+    },
+    "logo": {
+      "mobile": "Mobile Logo",
+      "main": "Main Logo"
+    },
+    "button": {
+      "selectLang": "Language"
+    },
+    "label": {
+      "slogan": "Slogan"
+    },
+    "lang": {
+      "en": "English",
+      "es": "Español"
+    }
+  },
+
+  "stepModule": {
+    "button": {
+      "next": "Next",
+      "previous": "Previous"
+    }
+  },
+
+  "layoutModule": {
+    "sidenav": {
+      "menu": {
+        "dashboard": "Dashboard",
+        "customers": "Customers",
+        "users": "Users",
+        "owners": "Owners",
+        "ownerships": "Ownerships",
+        "accounts": "Accounts",
+        "contracts": "Contracts",
+        "maintenance": "Maintenance",
+        "payments": "Payments"
+      }
+    },
+    "navbar": {
+      "dropdown": {
+        "profile": "Profile",
+        "config": "Configuration",
+        "signOut": "Sign Out",
+        "darkMode": "Dark Mode",
+        "lenguaje": "Lenguaje"
+      }
+    }
+  }
+}

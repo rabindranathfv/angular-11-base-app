@@ -1,0 +1,26 @@
+
+.basic-form-grid{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    grid-gap: 1%;
+}
+
+.images-container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 1%;
+}
+
+.property-images{
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(200px, 1fr));
+    .image{
+        background-size: contain;
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+        width: 100%;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}

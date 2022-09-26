@@ -1,0 +1,587 @@
+{
+  "demo": {
+    "title": "Demo de traducción",
+    "text": "Esta es una demostración simple de ngx-translate",
+    "greeting": "Hola {{name}}!"
+  },
+
+  "formValidation": {
+    "required": "Este campo es obligatorio."
+  },
+
+  "uploadFileComponent": {
+    "buttons": {
+      "upload": "Subir Imagen"
+    },
+    "labels": {
+      "selectImage": "Seleccionar Imagen"
+    }
+  },
+
+  "resetModule": {
+    "title": "Recupera tu contraseña",
+    "labels": {
+      "email": "Correo"
+    },
+    "buttons": {
+      "recover": "Siguiente"
+    },
+    "messages": {
+      "resetError": "Este correo no esta registrado.",
+      "resetSuccess": "Hemos enviado un correo de recuperación de contraseña.",
+      "emailError": "Por favor ingresa un correo valido."
+    }
+  },
+
+  "changePasswordModule": {
+    "title": "Cambia tu contraseña",
+    "labels": {
+      "password": "Contraseña",
+      "cPassword": "Confirmar contraseña"
+    },
+    "buttons": {
+      "change": "Cambiar"
+    },
+    "messages": {
+      "changeError": "Ocurrio un error al cambiar la contraseña.",
+      "changeSuccess": "Tu contraseña ha sido cambiada exitosamente",
+      "passwordError": "Proporcione una contraseña válida.",
+      "cPasswordError": "Las contraseñas no coinciden."
+    }
+  },
+
+  "viewHeaderModule": {
+    "actions": "Acciones"
+  },
+
+  "searchFilterBarModule": {
+    "search": "Buscar",
+    "filters": "Filtros"
+  },
+
+  "accountListModule": {
+    "listTitle": "Lista de cuentas"
+  },
+
+  "loginModule": {
+    "labels": {
+      "email": "Correo",
+      "password": "Contraseña"
+    },
+    "buttons": {
+      "signIn": "Inciar sesión",
+      "contact": "Contáctanos",
+      "passwordReset": "Olvidó su contraseña?"
+    },
+    "messages": {
+      "loginError": "Credenciales Inválidas!",
+      "loginSuccess": "Ingreso exitoso",
+      "emailError": "Por favor ingresa un correo valido.",
+      "passwordError": "Por favor ingresa tu contraseña."
+    }
+  },
+
+  "dashboardModule": {
+    "name": "Resumen",
+    "description": "Descripción de módulo de Resumen"
+  },
+
+  "ownerModule": {
+    "name": "Propietarios",
+    "description": "Descripción de módulo de propietarios",
+    "emptyMessage": "Sin coincidencias",
+    "tooltip": {
+      "edit": "Editar",
+      "mandate": "Mandato",
+      "activate": "Activar",
+      "deactivate": "Desactivar",
+      "view": "Ver Propietario"
+    },
+
+    "viewOwnerComponent": {
+      "name": "Ver Propietario",
+      "description": "Descripción del Componente Ver Propietario",
+      "tab": {
+        "basic": "Datos Básicos",
+        "address": "Datos de Dirección",
+        "assistant": "Datos de Asistente"
+      }
+    },
+
+    "addOwnerComponent": {
+      "name": "Agregar Propietario",
+      "description": "Descripción de módulo de Agregar Propietario",
+      "button": {
+        "save": "Guardar",
+        "previous": "Anterior",
+        "next": "Siguiente"
+      },
+      "step": {
+        "info": "Info Propietario",
+        "assistant": "Info Asistente",
+        "transfer": "Datos de Transferencia",
+        "access": "Datos de Acceso"
+      }
+    },
+
+    "editOwnerComponent": {
+      "name": "Editar Propietario",
+      "description": "Descripción del Módulo Editar Propietario"
+    },
+
+    "labels": {
+      "department": "Departmento",
+      "street": "Calle",
+      "number": "Número",
+      "comercialAddress": "Dirección Comercial",
+      "user": "Usuario",
+      "name": "Nombre",
+      "lastName": "Apellido",
+      "dni": "DNI",
+      "address": "Dirección",
+      "email": "Correo",
+      "phone": "Teléfono",
+      "mobile": "Móvil",
+      "business": "Negocio",
+      "position": "Posición",
+      "commercialAddress": "Dirección Comercial",
+      "admissionDate": "Fecha de Ingreso",
+      "fixedAmount": "Monto Fija",
+      "administrationPercent": "% Administración",
+      "brokeragePercent": "% Corretaje",
+      "portfolioExecutives": "Ejecutivo de Cartera",
+      "observations": "Observaciones",
+      "assistantFirstName": "Nombre Asistente",
+      "assistantLastName": "Apellido Asistente",
+      "assistantPhone": "Teléfono Asistente",
+      "assistantEmail": "Correo Asistente",
+      "bank": "Banco",
+      "accountType": "Tipo de Cuenta",
+      "accountNumber": "Número de Cuenta",
+      "titularFirstName": "Nombre Titular",
+      "titularLastName": "Apellido Titular",
+      "titularTaxInternationalIdentifier": "DNI Titular",
+      "username": "Usuario",
+      "password": "Contraseña"
+    },
+    "messages": {
+      "createSuccess": "Nuevo propietario creado.",
+      "editSuccess": "Propietario editado correctamente."
+    }
+  },
+
+  "advisorModule": {
+    "name": "Asesores",
+    "description": "Descripción de módulo de asesores",
+    "tooltip": {
+      "edit": "Editar",
+      "mandate": "Mandato",
+      "activate": "Activar",
+      "deactivate": "Desactivar",
+      "view": "Ver"
+    },
+
+    "viewAdvisorComponent": {
+      "name": "Detalles de asesor",
+      "description": "Descripción módulo de vista de asesores",
+      "tab": {
+        "basic": "Información Básica",
+        "bank": "Información del Banco"
+      },
+      "label": {
+        "basic": {
+          "name": "Nombre",
+          "lastName": "Apellidos",
+          "dni": "dni",
+          "email": "Correo",
+          "phone": "Teléfono",
+          "mobile": "Celular",
+          "address": "Dirección",
+
+          "observations": "Observaciones"
+        },
+
+        "bank": {
+          "bank": "Banco",
+          "account": "Tipo de cuenta",
+          "commercial": "Dirección Comercial",
+          "administration": "Administración %",
+          "brokerage": "Corretaje %"
+        }
+      }
+    },
+
+    "addAdvisorComponent": {
+      "name": "Añadir Advisor",
+      "description": "Descripción del Módulo Añadir Advisor",
+
+      "button": {
+        "save": "Guardar",
+        "previous": "Anterior",
+        "next": "Siguiente"
+      },
+      "step": {
+        "info": "Información Básica",
+        "bank": "Información Bancaria"
+      },
+
+      "label": {
+        "name": "Nombre",
+        "lastName": "Apellido",
+        "dni": "DNI",
+        "address": "Dirección",
+        "email": "Correo",
+        "phone": "Teléfono",
+        "mobile": "Móvil",
+
+        "bank": "Banco",
+        "accountType": "Tipo de Cuenta",
+        "accountNumber": "Número de Cuenta",
+        "bankOwnerName": "Titular del Banco",
+        "administration": "Administración %",
+        "brokerage": "Corretaje %"
+      }
+    }
+  },
+
+  "ownershipModule": {
+    "name": "Propiedades",
+    "description": "Descripción de módulo de propiedades",
+    "emptyMessage": "Sin coincidencias",
+    "tooltip": {
+      "edit": "Editar",
+      "mandate": "Mandato",
+      "activate": "Activar",
+      "deactivate": "Desactivar",
+      "view": "Ver Propiedad",
+      "comments": "Comentarios"
+    },
+    "viewOwnershipComponent": {
+      "name": "Ver Propiedad",
+      "description": "Descripción del Componente Ver Propiedad"
+    },
+
+    "addOwnershipComponent": {
+      "name": "Agregar Propiedad",
+      "description": "Descripción del módulo Agregar Propiedad",
+
+      "button": {
+        "save": "Guardar",
+        "previous": "Anterior",
+        "next": "Siguiente"
+      },
+
+      "step": {
+        "basic": "Info Básica",
+        "address": "Dirección",
+        "info": "Info Propiedad",
+        "admin": "Contratos de Admin y Servicios",
+        "features": "Características",
+        "more": "Más",
+        "images": "Imágenes"
+      }
+    },
+    "editOwnershipComponent": {
+      "name": "Editar Propiedad",
+      "description": "Descripción del Módulo Editar Propiedad"
+    },
+    "labels": {
+      "owner": "Propietario",
+      "admissionDate": "Fecha de Admisión",
+      "broker": "Corredor",
+      "realState": "Inmobiliaria",
+      "availableDate": "Fecha Disponible",
+      "maximumAmount": "Monto Máximo",
+      "minimumAmount": "Monto Mínimo",
+
+      "street": "Calle",
+      "number": "Número",
+      "department": "Departamento",
+      "communes": "Comunas",
+      "isAssertion": "¿Confirmada?",
+
+      "propertyType": "Tipo de Propiedad",
+      "hasWarehouse": "¿Tiene bodega?",
+      "cellarN": "Número",
+      "hasParking": "¿Tiene estacionamiento?",
+      "parkingN": "Numero",
+      "role": "Rol",
+
+      "administrationPhone": "Teléfono Admin",
+      "administrationContact": "Contacto Admin",
+      "advisory": "¿Es Consultor?",
+      "yes": "Sí",
+      "no": "No",
+      "waterClientNumber": "Nº Cliente Agua",
+      "electricityClientNumber": "Nº Cliente Elect",
+      "gasClientNumber": "Nº Cliente Gas",
+
+      "bedrooms": "Habitaciones",
+      "bathrooms": "Baños",
+      "surfaceM2": "Superficie (M2)",
+      "metro": "Metro",
+      "orientation": "Orientación",
+      "images": "Imágenes",
+      "moreFeatures": "Más características"
+    },
+    "messages": {
+      "createSuccess": "Nueva propiedad creada.",
+      "editSuccess": "Propiedad editada correctamente."
+    }
+  },
+
+  "customerModule": {
+    "name": "Clientes",
+    "description": "Descripción de módulo de clientes",
+    "emptyMessage": "Sin coincidencias",
+    "viewCustomerComponent": {
+      "name": "Ver Cliente",
+      "description": "Descripcion modulo ver clientes",
+      "tab": {
+        "basic": "Informacion Basica",
+        "config": "Configuracion"
+      }
+    },
+    "createCustomerComponent": {
+      "name":"Crear cliente",
+      "description":"Descripción de módulo de crear cliente",
+      "step" : {
+        "basic": "Información Basica",
+        "config": "Configuración"
+      }
+    },
+    "labels":{
+      "name": "Nombre",
+      "country": "Pais",
+      "taxInternationalIdentifier": "ID",
+      "address": "Direccion",
+      "legalRepresentative": "Representante Legal",
+      "email": "Correo",
+      "primaryPhone": "Telefono Principal",
+      "secondaryPhone": "Telefono Secundario"
+    },
+    "messages": {
+      "createSuccess": "Nuevo cliente creado.",
+      "editSuccess": "El cliente se ha editado."
+    }
+  },
+
+  "userModule": {
+    "name": "Usuarios",
+    "description": "Descripción de módulo de usuarios",
+    "emptyMessage": "Sin coincidencias",
+    "createUserComponent": {
+      "name":"Crear usuario",
+      "description":"Decripcion de modulo crear usuario",
+      "step" : {
+        "basic": "Información Básica",
+        "otherContact": "Otra Información",
+        "address": "Dirección",
+        "files": "Archivos"
+      }
+    },
+    "editUserComponent": {
+      "name":"Editar usuario",
+      "description":"Decripcion de modulo Editar usuario"
+    },
+    "viewUserComponent": {
+      "name":"Ver usuario",
+      "description":"Decripcion de modulo ver usuario"
+    },
+    "labels":{
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "dni": "DNI",
+      "phone": "Teléfono",
+      "mobile": "Móvil",
+      "email": "Email",
+      "position": "Posición",
+      "business": "Negocio",
+      "password": "Contraseña",
+      "cPassword": "Confirmar Contraseña",
+      "role": "Seleccionar Rol",
+      "department": "Departamento",
+      "street": "Calle",
+      "number": "Numero",
+      "comercialAddress": "Dirección Comercial",
+      "fullName": "Nombre Completo",
+      "dniFile": "Imagen DNI",
+      "image": "Imagen de Perfil",
+      "observations": "Observaciones"
+    },
+    "messages": {
+      "cPasswordError": "Passwords do not match.",
+      "createSuccess": "Nuevo usuario creado.",
+      "editSuccess": "Usuario editado."
+    }
+  },
+
+  "accountModule": {
+    "name": "Cuentas",
+    "description": "Descripción de módulo de cuentas"
+  },
+  "contractModule": {
+    "name": "Contratos",
+    "description": "Descripción de módulo de contratos",
+
+    "addContractComponent": {
+      "name": "Agregar Contrato",
+      "description": "Descripción de Módulo Agregar Contrato",
+
+      "button": {
+        "save": "Guardar",
+        "previous": "Anterior",
+        "next": "Siguiente"
+      },
+
+      "step": {
+        "holder": "Info Titular",
+        "ownership": "Info Propiedad",
+        "contract": "Info Contrato",
+        "guarantee": "Garantía",
+        "payment": "Pagos"
+      },
+
+      "label": {
+        "name1": "Nombre Titular",
+        "name2": "Nombre Segundo Titular",
+        "rut": "Rut",
+        "mail1": "E-mail Titular",
+        "mail2": "E-mail Segundo Titular",
+        "phone": "Teléfono",
+        "mobile": "Móvil",
+        "nationality": "Nacionalidad",
+
+        "oStreet": "Calle",
+        "oNumber": "Número",
+        "oDepartment": "Departamento",
+        "end": "Fin de Propiedad",
+        "broker": "Corredor",
+        "aPhone": "Teléfono Admin",
+        "aMobile": "Móvil Admin",
+
+        "status": "Estado",
+        "antiquity": "Antigüedad",
+        "aDate": "Fecha de Admisión",
+        "lessee": "Arrendatario",
+        "lessor": "Arrendador",
+        "executive": "Ejecutivo",
+
+        "gAmount": "Monto Garantía",
+        "previousLessee": "Anterior Arrendatario",
+        "contractStart": "Inicio de Contrato",
+        "contractEnd": "Término de Contrato",
+        "currentDelivery": "Fecha Actual de Entrega ",
+        "estimatedPayment": "Fecha de Pago Estimada",
+        "requestedByName": "Solicitado por Nombre",
+
+        "pAmount": "Monto del Pago",
+        "pStatus": "Estado del Pago",
+        "pDate": "Fecha de Pago",
+        "pStreet": "Calle",
+        "pNumber": "Número",
+        "pDepartment": "Departamento"
+      }
+    }
+  },
+
+  "maintenanceModule": {
+    "name": "Mantenimiento",
+    "description": "Descripción de módulo de mantenimiento"
+  },
+
+  "profileModule": {
+    "button": {
+      "save": "Guardar"
+    },
+    "tab": {
+      "basic": "Información Básica",
+      "address": "Dirección",
+      "images": " Imágenes",
+      "otherContact": "Información de otro Contacto"
+    },
+    "label": {
+      "userImage": "Foto",
+      "name": "Nombre",
+      "lastName": "Apellido",
+      "dni": "DNI",
+      "business": "Negocio",
+      "position": "Posición",
+      "department": "Departmento",
+      "street": "Calle",
+      "number": "Número",
+      "comercialAddress": "Dirección Comercial",
+      "email": "Correo",
+      "phone": "Teléfono",
+      "mobile": "Móvil",
+      "fullName": "Nombre Completo"
+    }
+  },
+
+  "configModule": {
+    "name": "Configuración",
+    "description": "Descripción de módulo de configuración",
+    "cards": {
+      "visualConfig": {
+        "title": "Configuración visual",
+        "buttons": {
+          "save": "Guardar"
+        }
+      }
+    },
+    "color": {
+      "primary": "Color primario",
+      "secondary": "Color secundario"
+    },
+    "logo": {
+      "mobile": "Logo para móvil",
+      "main": "logo principal"
+    },
+    "button": {
+      "selectLang": "Lenguaje"
+    },
+    "label": {
+      "slogan": "Slogan"
+    },
+    "lang": {
+      "en": "English",
+      "es": "Español"
+    }
+  },
+  "lang": {
+    "en": "English",
+    "es": "Español"
+  },
+
+  "stepModule": {
+    "button": {
+      "next": "Siguiente",
+      "previous": "Anterior"
+    }
+  },
+
+  "layoutModule": {
+    "sidenav": {
+      "menu": {
+        "customers": "Clientes",
+        "dashboard": "Resumen",
+        "users": "Usuarios",
+        "owners": "Propietarios",
+        "ownerships": "Propiedades",
+        "accounts": "Cuentas",
+        "contracts": "Contratos",
+        "maintenance": "Mantenimiento",
+        "payments": "Pagos"
+      }
+    },
+    "navbar": {
+      "dropdown": {
+        "profile": "Perfil",
+        "config": "Configuración",
+        "signOut": "Cerrar sesión",
+        "darkMode": "Modo oscuro",
+        "lenguaje": "Idioma"
+      }
+    }
+  }
+}

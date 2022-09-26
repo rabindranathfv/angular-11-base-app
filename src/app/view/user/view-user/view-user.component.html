@@ -1,0 +1,110 @@
+<div class="mb-3">
+    <app-view-header
+      [icon]="infoModule.icon"
+      [viewName]="infoModule.name"
+      [viewDescription]="infoModule.description"
+    >
+    </app-view-header>
+</div>
+
+<app-tabset *ngIf="(currentUser$ | async)">
+    <app-tab [tabTitle]="'userModule.createUserComponent.step.basic'">
+        <div class="info-grid">
+            <div class="mb-3">
+                <h5><i class="fa fa-user mr-2"></i>{{ "userModule.labels.firstName" | translate }}:</h5>
+                <span>{{ (currentUser$ | async).firstName }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-user mr-2"></i>{{ "userModule.labels.lastName" | translate }}:</h5>
+                <span>{{ (currentUser$ | async).lastName }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-user mr-2"></i>{{ "userModule.labels.dni" | translate }}:</h5>
+                <span>{{ (currentUser$ | async).dni }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-user mr-2"></i>{{ "userModule.labels.email" | translate }}:</h5>
+                <span>{{ (currentUser$ | async).email }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-user mr-2"></i>{{ "userModule.labels.phone" | translate }}:</h5>
+                <span>{{ (currentUser$ | async).phone }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-user mr-2"></i>{{ "userModule.labels.mobile" | translate }}:</h5>
+                <span>{{ (currentUser$ | async).mobile }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-user mr-2"></i>{{ "userModule.labels.business" | translate }}:</h5>
+                <span>{{ (currentUser$ | async).business }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-user mr-2"></i>{{ "userModule.labels.position" | translate }}:</h5>
+                <span>{{ (currentUser$ | async).position }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-user mr-2"></i>{{ "userModule.labels.role" | translate }}:</h5>
+                <span>{{ (currentUser$ | async).role.name }}</span>
+            </div>
+        </div>
+    </app-tab>
+    <app-tab [tabTitle]="'userModule.createUserComponent.step.otherContact'">
+        <h4 class="font-weight-bold mb-3">{{ 'userModule.createUserComponent.step.address' | translate}}</h4>
+        <div class="info-grid" *ngIf="(currentUser$ | async)">
+            <div class="mb-3">
+                <h5><i class="fa fa-building mr-2"></i>{{ 'userModule.labels.department' | translate}}:</h5>
+                <span>{{ (currentUser$ | async).department }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-building mr-2"></i>{{ 'userModule.labels.street' | translate}}:</h5>
+                <span>{{ (currentUser$ | async).street }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-building mr-2"></i>{{ 'userModule.labels.number' | translate}}:</h5>
+                <span>{{ (currentUser$ | async).number }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-building mr-2"></i>{{ 'userModule.labels.comercialAddress' | translate}}:</h5>
+                <span>{{ (currentUser$ | async).comercialAddress }}</span>
+            </div>                     
+        </div>
+        <h4 class="font-weight-bold mb-3">{{ 'profileModule.tab.otherContact' | translate}}</h4>
+        <div class="info-grid" *ngIf="(currentUser$ | async)">
+            <div class="mb-3">
+                <h5><i class="fa fa-building mr-2"></i>{{ 'userModule.labels.fullName' | translate}}:</h5>
+                <span>{{ (currentUser$ | async).anotherContactFullName }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-building mr-2"></i>{{ 'userModule.labels.phone' | translate}}:</h5>
+                <span>{{ (currentUser$ | async).anotherContactPhone }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-building mr-2"></i>{{ 'userModule.labels.email' | translate}}:</h5>
+                <span>{{ (currentUser$ | async).anotherContactEmail }}</span>
+            </div>
+            <div class="mb-3">
+                <h5><i class="fa fa-building mr-2"></i>{{ 'userModule.labels.observations' | translate}}:</h5>
+                <span>{{ (currentUser$ | async).observations }}</span>
+            </div>              
+        </div>
+    </app-tab>
+    <app-tab [tabTitle]="'userModule.createUserComponent.step.otherContact'">
+        <div class="info-grid" *ngIf="(currentUser$ | async)">
+            <div class="mb-3 d-flex align-items-center flex-column">
+                <h5><i class="fa fa-text"></i>{{ 'userModule.labels.dniFile' | translate}}:</h5>
+                <div class="image">
+                    <img src="{{(currentUser$ | async).dniFile || urlDefaultImage }}" alt="image"/>
+                </div>
+            </div>
+            <div class="mb-3 d-flex align-items-center flex-column">
+                <h5><i class="fa fa-text"></i>{{ 'userModule.labels.image' | translate}}:</h5>
+                <div class="image">
+                    <img src="{{(currentUser$ | async).image || urlDefaultImage }}" alt="image"/>
+                </div>
+            </div>   
+        </div>
+
+    </app-tab>
+
+</app-tabset>
+

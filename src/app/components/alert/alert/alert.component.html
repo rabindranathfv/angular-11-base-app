@@ -1,0 +1,7 @@
+
+<div *ngIf="isVisible" [class]="'alert alert-' + alertType " role="alert">
+    <button type="button" class="close" (click)="closeAlert()" >
+        <span>&times;</span>
+    </button>
+    <strong>{{message | translate }}</strong>
+</div>

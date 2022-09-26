@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-body">
+        <div *ngIf="metricCardData" class="metric-content">
+            <div  class="centered">
+                <div class="metric-icon bg-{{metricCardData.colorIcon}}-light">
+                    <i class="fa fa-{{metricCardData.icon}} text-{{metricCardData.colorIcon}}"></i>
+                </div>
+            </div>            
+            <div class="mt-3">
+                <h5 class="font-weight-light">{{metricCardData.title}}</h5>
+                <h1 class="font-weight-bold">{{metricCardData.quantity+ metricCardData.quantityIndicator}}</h1>
+                <div class="text-{{metricCardData.colorPercent}} font-weight-light mt-2">
+                    <span class="fa fa-{{metricCardData.iconPercent}}"></span>
+                    {{metricCardData.percent}}%
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

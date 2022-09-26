@@ -1,0 +1,13 @@
+<div class="view-header">
+   
+    <div class="view-header-icon">
+        <i class="{{icon}}"></i>
+    </div>
+    <div class="view-header-title">
+        <h3>{{viewName | translate}}</h3>
+        <p>{{viewDescription | translate}}</p>
+    </div>
+    <div class="view-header-actions" *ngIf="button">
+        <button class="btn btn-{{button.color}}" (click)="action(button.route)" >  <i class="{{button.icon}}"></i> {{ button.text | translate }} </button>
+    </div>  
+</div>

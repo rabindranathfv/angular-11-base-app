@@ -1,0 +1,20 @@
+
+<div class="mb-3">
+    <app-view-header 
+        [icon]="infoModule.icon" 
+        [viewName]="infoModule.name" 
+        [viewDescription]="infoModule.description"
+        [button] = "infoModule.button"
+    ></app-view-header>
+</div>
+<div class="card" *ngIf="(ownersData$ | async) ">
+    <div class="card-body" *ngIf="!(ownersData$ | async).length">
+        <app-no-data [message]="infoModule.emptyMessage" icon="fa fa-search"></app-no-data>
+    </div>   
+    <div class="card-body" *ngIf="(ownersData$ | async).length">
+        <app-search-filter-bar></app-search-filter-bar>
+        <div class="customer-card-list grid-cards">
+            <app-info-card *ngFor="let item of ownersData$ | async" [data]="item" type = "user"></app-info-card>
+        </div>        
+    </div>    
+</div>

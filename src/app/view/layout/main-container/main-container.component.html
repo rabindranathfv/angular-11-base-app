@@ -1,0 +1,8 @@
+<app-navbar *ngIf="navbarSee"></app-navbar>
+<app-sidebar *ngIf="sidebarSee" (collapsedEvent)="receiveCollapsed($event)"></app-sidebar>
+<section [ngClass]="{collapsed: collapedSideBar, 'main-container': containerSee}">
+    <!--div [ngClass]="{'container': containerSee}"></div-->
+      <router-outlet></router-outlet>
+    <!--/div-->
+</section>
+<app-toast aria-live="polite" aria-atomic="true" class="toast-margin" ></app-toast>
