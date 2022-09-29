@@ -1,12 +1,12 @@
 <app-alert [isVisible]="firstLogin" (hide)="firstLogin=!firstLogin" [alertType]="'success'" [message]="'demo.title'" ></app-alert>
 
 <div class="mb-3">
-    <app-view-header 
-        [icon]="infoModule.icon" 
-        [viewName]="infoModule.name" 
+    <app-view-header
+        [icon]="infoModule.icon"
+        [viewName]="infoModule.name"
         [viewDescription]="infoModule.description">
     </app-view-header>
-</div>  
+</div>
 
 <div class="grid-4 mb-3">
     <app-metric-card-n1 [metricCardData]="metrics[0]"></app-metric-card-n1>
@@ -21,14 +21,8 @@
     <app-chart [chartData]='dashboardChart[2]'></app-chart>
 </div>
 
-<app-data-table 
+<app-data-table
             [rowData]="rowData"
             [columnDefs]="columnDefs"
 ></app-data-table>
 
-  
-
-
-
-
- 

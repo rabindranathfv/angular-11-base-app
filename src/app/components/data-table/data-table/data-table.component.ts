@@ -18,21 +18,19 @@ export class DataTableComponent implements OnInit {
   @Input() columnDefs: any;
   @Input() rowData: any;
   themeTable$: Observable<string>;
-  paginationPageSize = 10;
+  @Input() paginationPageSize: number;
   frameworkComponents = {
     iconCell: IconCellComponent,
     statusCell: StatusCellComponent,
     userImageCell: UserImageCellComponent
   };
 
-
-
   constructor(
     public themeService: ThemeService,
     private configAppFacade: ConfigAppFacade
   ) {
-
-    }
+    this.paginationPageSize = this.paginationPageSize || 10;
+   }
 
   ngOnInit() {
     this.getCurrentTheme();

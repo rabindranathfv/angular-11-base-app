@@ -1,6 +1,6 @@
 export const environment = {
     name: 'development',
-    apiUrl: 'http://localhost-development:3000/',
+    apiUrl: 'http://localhost-development:4000/api/v1/',
     env: 'development',
     production: false,
     channel: 'WEB',

@@ -1,7 +1,7 @@
 <div class="card" *ngIf="listData.type === 'task' && listData.listItems.length >= 1" >
     <div class="card-header d-flex flex-row align-items-center">
         <i class="{{listData.icon}}" id="icon"></i>
-        <span class="ml-2 title">{{listData.listTitle | translate}}</span> 
+        <span class="ml-2 title">{{listData.listTitle | translate}}</span>
     </div>
     <div class="card-body">
         <ul class="list-group list-group-flush">
@@ -13,7 +13,7 @@
                             <input type="checkbox" class="custom-control-input" id="customCheck{{i}}" >
                             <label class="custom-control-label" for="customCheck{{i}}"></label>
                         </div>
-                    </div>                
+                    </div>
                     <div class="description">
                         <div class="title">{{item.title}}</div>
                         <div class="subtitle">{{item.subtitle}}</div>
@@ -50,14 +50,14 @@
                             <input type="checkbox" class="custom-control-input" id="customCheck{{i}}" >
                             <label class="custom-control-label" for="customCheck{{i}}"></label>
                         </div>
-                    </div>                
+                    </div>
                     <div class="description">
                         <div class="title">{{ i+1 }}</div>
                         <div class="subtitle">{{item.title}} </div>
                         <div class="subtitle">{{item.subtitle}} </div>
                     </div>
                 </div>
-                
+
                 <div class="d-flex align-items-center" >
                     <app-tag *ngFor="let tag of item.tags" [tagData]="tag"></app-tag>
                 </div>

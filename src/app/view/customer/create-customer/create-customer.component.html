@@ -1,6 +1,6 @@
 <ng-template #successMessage>
-    <app-alert 
-        [isVisible]="true" [alertType]="'success'" 
+    <app-alert
+        [isVisible]="true" [alertType]="'success'"
         [message]="viewOption == 'create' ? 'customerModule.messages.createSuccess': 'customerModule.messages.editSuccess' " >
     </app-alert>
 </ng-template>
@@ -15,7 +15,7 @@
       [viewDescription]="infoModule.description"
     ></app-view-header>
 </div>
-  
+
   <app-stepper>
     <app-step [stepTitle]="'customerModule.createCustomerComponent.step.basic'">
         <form [formGroup]="customerForm" class="pr-5">
@@ -24,8 +24,8 @@
                     <label class="font-weight-bold">
                         {{ "customerModule.labels.name" | translate }}: 
                     </label>
-                    <input 
-                        formControlName="name" 
+                    <input
+                        formControlName="name"
                         [class.invalid-input]="customerForm.controls.name.invalid && customerForm.controls.name.touched"                        
                         type="text" class="form-control" 
                         placeholder="{{'customerModule.labels.name'| translate}}"

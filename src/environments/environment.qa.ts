@@ -1,6 +1,6 @@
 export const environment = {
     name: 'qa',
-    apiUrl: 'https://apiurl-qa.com/',
+    apiUrl: 'https://localhost:4000/',
     production: false,
     env: 'qa',
     channel: 'WEB',

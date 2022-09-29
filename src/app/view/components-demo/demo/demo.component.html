@@ -14,7 +14,7 @@
 
 
 <button type="button" class="btn btn-primary" (click)="openModal(template)">Modal with Metric Cards</button>
- 
+
 <ng-template #template>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Modal</h4>
@@ -22,7 +22,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body">    
+  <div class="modal-body">
         <div class="grid mb-3">
             <app-metric-card-n1 [metricCardData]="metrics[0]"></app-metric-card-n1>
             <app-metric-card-n1 [metricCardData]="metrics[1]"></app-metric-card-n1>
@@ -38,7 +38,7 @@
 
 
 <button type="button" class="btn btn-primary" (click)="openModal(template1)">Modal with Ag Grid</button>
- 
+
 <ng-template #template1>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Modal</h4>
@@ -46,8 +46,8 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body">    
-            <app-data-table 
+  <div class="modal-body">
+            <app-data-table
             [rowData]="rowData"
             [columnDefs]="columnDefs"
         ></app-data-table>
@@ -58,7 +58,7 @@
 </ng-template>
 
 <button type="button" class="btn btn-primary" (click)="openModal(template2)">Modal with Charts</button>
- 
+
 <ng-template #template2>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Modal</h4>
@@ -66,7 +66,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body">    
+  <div class="modal-body">
     <app-chart [chartData]='chartData[1]'></app-chart>
   </div>
   <div class="modal-footer">
