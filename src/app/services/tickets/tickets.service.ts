@@ -25,10 +25,4 @@ export class TicketsService {
     return this.http.get(`${environment.apiUrl}${this.keyEndpoint}/generate`);
   }
 
-  // TODO: ENDPOINT WITH ADD FILES
-  public generateTicketsByFiles(tickets: any) {
-    console.log('checking files in ticket service ***', tickets);
-    return this.http.post(`${environment.apiUrl}${this.keyEndpoint}`, tickets );
-  }
-
 }

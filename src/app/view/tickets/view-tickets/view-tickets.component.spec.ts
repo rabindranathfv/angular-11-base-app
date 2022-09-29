@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { DataTableModule } from 'src/app/components/data-table/data-table.module';
 import { TicketsRoutingModule } from '../tickets-routing.module';
+import { TicketFacade } from '../store/facade/ticket.facade';
 
 import { ViewTicketsComponent } from './view-tickets.component';
 
@@ -25,8 +26,7 @@ describe('ViewTicketsComponent', () => {
         ReactiveFormsModule
       ],
       providers: [
-        // agregar servicio
-        // agregar ticket facade
+        TicketFacade,
         provideMockStore({ initialState }),
       ]
     })

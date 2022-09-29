@@ -24,25 +24,25 @@ export const loadTickets = createAction(
   TicketsActions.loadTickets
 );
 
-// export const generateTicketsSuccess = createAction(
-//   TicketsActions.generateTicketsSuccess,
-//   props<{ tickets: Ticket[] }>
-// );
+export const generateTicketsSuccess = createAction(
+  TicketsActions.generateTicketsSuccess,
+  props<{ tickets: Ticket[] }>()
+);
 
-// export const generateTicketsFailure = createAction(
-//   TicketsActions.generateTicketsFailure,
-//   props<{ error: any }>()
-// );
+export const generateTicketsFailure = createAction(
+  TicketsActions.generateTicketsFailure,
+  props<{ error: any }>()
+);
 
-// export const generateTickets = createAction(
-//   TicketsActions.generateTickets
-// );
+export const generateTickets = createAction(
+  TicketsActions.generateTickets
+);
 
 export const fromTicketsActions = {
   loadTickets,
   loadTicketsFailure,
   loadTicketsSuccess,
-  // generateTickets,
-  // generateTicketsFailure,
-  // generateTicketsSuccess
+  generateTickets,
+  generateTicketsFailure,
+  generateTicketsSuccess
 };

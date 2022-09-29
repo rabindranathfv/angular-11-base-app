@@ -7,14 +7,12 @@ export const ticketsFeatureKey = 'tickets';
 
 export interface TicketAppState extends EntityState<Ticket> {
   error: any;
-  tickets: Ticket[];
 }
 
 export const adapter: EntityAdapter<Ticket> = createEntityAdapter<Ticket>();
 
 export const initialState = adapter.getInitialState({
-  error: undefined,
-  tickets: []
+  error: undefined
 });
 
 
@@ -23,9 +21,17 @@ export const TicketReducer = createReducer(
   on(TicketsActions.loadTickets,
     state => ({...state})),
   on(TicketsActions.loadTicketsSuccess,
-    (state, { tickets }) => (adapter.upsertMany( tickets , {...state, error: false}))
+    (state, { tickets }) => (adapter.setAll( tickets , {...state, error: false}))
   ),
   on(TicketsActions.loadTicketsFailure,
+    (state, { error } ) => ({...state, error })
+  ),
+  on(TicketsActions.generateTickets,
+    state => ({...state})),
+  on(TicketsActions.generateTicketsSuccess,
+    (state, { tickets }) => (adapter.setAll( tickets , {...state, error: false}))
+  ),
+  on(TicketsActions.generateTicketsFailure,
     (state, { error } ) => ({...state, error })
   )
 );

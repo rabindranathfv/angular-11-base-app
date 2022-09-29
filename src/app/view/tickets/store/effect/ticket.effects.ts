@@ -26,6 +26,19 @@ export class TicketEffects {
     )
   ));
 
+  generateTickets$ = createEffect(() => this.actions$.pipe(
+    ofType(fromTicketsActions.generateTickets),
+    mergeMap(() => this.ticketsService.generateTickets().
+      pipe(
+        map( (resp: any) => {
+          this.ticketData = resp?.tickets;
+          return fromTicketsActions.generateTicketsSuccess({ tickets: this.ticketData });
+        }),
+        catchError( err => of(fromTicketsActions.generateTicketsFailure({ error: err })))
+      )
+    )
+  ));
+
   constructor(
     private actions$: Actions,
     private ticketsService: TicketsService,

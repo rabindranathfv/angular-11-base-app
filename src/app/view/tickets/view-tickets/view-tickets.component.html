@@ -6,79 +6,17 @@
       Action section
     </h4>
     <div class="actions-container-btns">
-      <button type="button" class="btn btn-primary btn-lg" (click)="generateRandomTickets()" data-toggle="tooltip" data-placement="top" title="Click here for generate ticket">Generate tickets</button>
-      <button type="button" class="btn btn-secondary btn-lg" (click)="generateTicketsByFiles()" data-toggle="tooltip" data-placement="top" title="Click here and prepare files to upload">Generate ticket By upload file</button>
-    </div>
-    <div class="upload-container mt-4">
-      <ng-container *ngIf="showUploadFiles; then showUploadCmp;"></ng-container>
-      <ng-template #showUploadCmp>
-        <p> show it</p>
-      </ng-template>
+      <button type="button" class="btn btn-primary btn-block ml-4 mr-4" (click)="generateRandomTickets()" data-toggle="tooltip" data-placement="top" title="Click here for generate ticket">Generate tickets</button>
     </div>
   </div>
 
-  <div class="config-tickets-container">
-    <h4 class="config-tickets-info pl-4">Upload files section</h4>
-      <div class="card-deck ml-4 mr-4 mb-3 text-center">
-        <div class="card mb-4 box-shadow">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Free</h4>
-          </div>
-          <div class="card-body">
-            <ul class="list-unstyled mt-3 mb-4">
-              <li><i class="fa fa-ticket" aria-hidden="true"></i> 10 users included</li>
-              <li><i class="fa fa-terminal" aria-hidden="true"></i> 2 GB of storage</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
-          </div>
-        </div>
-        <div class="card mb-4 box-shadow">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Pro</h4>
-          </div>
-          <div class="card-body">
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>20 users included</li>
-              <li>10 GB of storage</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-          </div>
-        </div>
-        <div class="card mb-4 box-shadow">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Enterprise</h4>
-          </div>
-          <div class="card-body">
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>30 users included</li>
-              <li>15 GB of storage</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
-          </div>
-        </div>
-
-        <div class="card mb-4 box-shadow">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Enterprise</h4>
-          </div>
-          <div class="card-body">
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>30 users included</li>
-              <li>15 GB of storage</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
-          </div>
-        </div>
-      </div>
-  </div>
-
-  <div class="content-tickets-container">
+  <div class="content-tickets-container" *ngIf="(tickets$ | async) ">
     <h4 class="actions-tickets-info pl-4">Tickets Info</h4>
     <div class="grid-3 pr-4">
       <app-data-table
-        [rowData]="rowDataTickets"
+        [rowData]="(tickets$ | async)"
         [columnDefs]="columnDefs"
-        [paginationPageSize]="10">
+        [paginationPageSize]="20">
       </app-data-table>
     </div>
   </div>

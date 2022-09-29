@@ -3,7 +3,7 @@ import { Store, select } from '@ngrx/store';
 
 import * as fromTicketsActions from '../action/ticket.actions';
 import { TicketAppState } from '../reducer/ticket.reducer';
-import { TicketsSelectors } from '../selector/ticket.selectors'
+import { TicketsSelectors } from '../selector/ticket.selectors';
 
 import { Observable } from 'rxjs';
 import { Ticket } from './../../../../interfaces/ticket/ticket';
@@ -20,14 +20,11 @@ export class TicketFacade {
         this.store.dispatch( fromTicketsActions.loadTickets());
     }
 
-    generateTickets() {
-        // this.store.dispatch( fromTicketsActions.generateTickets());
+    loadAllTickets(): Observable<Ticket[]> {
+        return this.store.pipe(select(TicketsSelectors.selectTickets));
     }
 
-    // TODO: CREATE ACTIONS, REDUCER AND EVERYTHIN YOU NEED
-    // GENERATE TICKET READY OF FILES
-    generateTicketsByFiles() {
-        // CHANGE THIS ACTION!!!
-        // this.store.dispatch( fromTicketsActions.generateTickets());
+    generateTickets() {
+        this.store.dispatch( fromTicketsActions.generateTickets());
     }
 }

@@ -88,7 +88,7 @@ describe('CustomersService', () => {
     const req = httpMock.expectOne({ method: 'GET', url: `${environment.apiUrl}customers`});
     expect(req.request.method).toEqual('GET');
     expect(req.request.responseType).toEqual('json');
-    expect(req.request.url).toEqual('http://localhost:3000/customers');
+    expect(req.request.url).toEqual('http://localhost:4000/api/v1/customers');
 
     req.flush(
       {
